@@ -1,0 +1,22 @@
+
+<ion-header>
+  <ion-navbar color="{{colorFondo}}">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      {{'Menu.Inicio' | translate}}
+    </ion-title>
+    <ion-buttons end>
+      <img src="img/univalle.png" class="imagenLogo"/>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides loop="true" pager>
+    <ion-slide *ngFor="let imga of imagenesDia">
+      <img src="img/MenuPrincipal/{{imga}}" class="fondoImg">
+    </ion-slide>
+  </ion-slides> 
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="{{colorFondo}}">
+        <ion-title>
+            {{'PuntosEstrategicos.InformacionPuntoEstrategico.Titulo' | translate}}
+        </ion-title>
+        <ion-buttons end>
+            <img src="img/univalle.png" class="imagenLogo"/>
+          </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="fondo">
+        <ion-card-header style="text-align: center" text-wrap>
+            <b><h1 class="encabezado">{{nombre}}</h1></b>
+        </ion-card-header>
+         <img src="{{rutaImagen}}PuntosEstrategicos/{{imagen}}" class="imagen" imageViewer>
+        <ion-card-content style="text-align: center">
+            <h3 class="titulo">{{'PuntosEstrategicos.InformacionPuntoEstrategico.VerPuntoMapa' | translate}}</h3>
+        <button ion-button round icon-left color="{{colorFondo}}" (click)="mostrarPunto()">
+                <ion-icon name="navigate"></ion-icon>
+                {{'Botones.BotonVerPunto' | translate}}
+            </button>
+            <h3 class="titulo">{{'PuntosEstrategicos.InformacionPuntoEstrategico.Categoria' | translate}} </h3>
+            <p class="letra">{{'PuntosEstrategicos.Categoria.' + categoria | translate}}</p>
+            <br>
+            <h3 class="titulo">{{'PuntosEstrategicos.InformacionPuntoEstrategico.Direccion' | translate}}</h3>
+            <p *ngFor="let calle of calles" class="letra">{{calle}}</p>
+            <br>
+            <h3 class="titulo">{{'PuntosEstrategicos.InformacionPuntoEstrategico.Lineas' | translate}}</h3>
+            <button ion-button round icon-left color="{{colorFondo}}" (click)="cargarLineas()">
+                <ion-icon name="navigate"></ion-icon>
+                {{'Botones.Lineas' | translate}}
+            </button>
+            <br>
+            <h3 class="titulo">{{'PuntosEstrategicos.InformacionPuntoEstrategico.Zona' | translate}}:</h3>
+            <p  class="letra">{{zona}}</p>
+            <br>
+            <h3 class="titulo">{{'PuntosEstrategicos.InformacionPuntoEstrategico.InformacionComplementaria' | translate}}:</h3>
+            <p  class="letra">{{descripcion}}</p>
+            <br>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

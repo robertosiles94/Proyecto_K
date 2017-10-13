@@ -1,0 +1,40 @@
+<!--
+  Generated template for the MisPuntosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="{{colorFondo}}">
+    <ion-title>{{'PuntosEstrategicos.MisPuntos.TituloAlertPunto' | translate}}</ion-title>
+  </ion-navbar>
+  <ion-buttons end>
+    <img src="img/univalle.png" class="imagenLogo"/>
+  </ion-buttons>
+</ion-header>
+
+
+<ion-content>
+  <div class="entrada">
+    <ion-item>
+      <ion-label floating class="titulo">{{'PuntosEstrategicos.MisPuntos.InputNombrePunto' | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="nombrePunto"></ion-input>
+      <button item-end ion-button round icon-left color="primary" [disabled]="esPuntoValido()" (click)="agregarPunto()">
+         <ion-icon name="bookmark"></ion-icon>
+         {{'Botones.Guardar' | translate}}
+      </button>
+    </ion-item>
+  </div>
+  <br>
+  <div>
+  <ion-fab right top class="fabMargen" (click)="desdeUbicacion()">
+    <button ion-fab class="jellyAnimation" color="{{colorFondo}}"><ion-icon name="pin"></ion-icon></button>
+  </ion-fab>
+  </div>
+  <div #map id="map" name="map">
+  </div>
+</ion-content>
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6YW7h8SJcje8QK0kPBIQuD_KwR2JiDzI&callback=initMap">
+</script>

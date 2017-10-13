@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar color="{{colorFondo}}">
+        <ion-title>
+            {{'BusquedaDeLineas.InformacionLineas.TituloInformacionLinea' | translate}}
+        </ion-title>
+        <ion-buttons end>
+            <img src="img/univalle.png" class="imagenLogo"/>
+          </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="fondo">
+        <ion-card-header style="text-align: center">
+            <b><h1 class="encabezado">{{nombre}}</h1></b>
+
+        </ion-card-header>
+        <img src="{{rutaImagen}}Lineas/{{imagen}}" alt="{{nombre}}" class="imagenLinea" imageViewer>
+        <ion-card-content style="text-align: center">
+            <h3 class="titulo">{{'BusquedaDeLineas.InformacionLineas.VerRutas' | translate}} </h3>
+            <button ion-button round icon-left color="{{colorFondo}}" (click)="mostrarRuta()">
+                <ion-icon name="navigate"></ion-icon>
+                {{'Botones.BotonVerRutas' | translate}}
+            </button>
+            <h3 class="titulo">{{'BusquedaDeLineas.InformacionLineas.CostoDelPasaje' | translate}} </h3>
+            <p class="letra" *ngFor="let p of pasaje">{{p}}</p>
+            <br>
+            <h3 class="titulo">{{'BusquedaDeLineas.InformacionLineas.Horarios' | translate}} </h3>
+            <p class="letra" *ngFor="let horario of horarios">{{horario}}</p>
+            <br>
+            <h3 class="titulo">{{'BusquedaDeLineas.InformacionLineas.CallesPrincipales' | translate}}</h3>
+            <p *ngFor="let calle of calles" class="letra">{{calle}}</p>
+            <br>
+            <h3 class="titulo">{{'BusquedaDeLineas.InformacionLineas.Consultas' | translate}} </h3>
+            <p *ngFor="let telf of telefonos">
+                <button ion-button clear icon-left (click)="copiarTelefono(telf)">
+                    {{telf}}
+                <ion-icon name="copy" class="iconoTelf"></ion-icon>
+            </button>
+            </p>
+            <br>
+            <h3 class="titulo">{{'BusquedaDeLineas.InformacionLineas.Categoria' | translate}}</h3>
+            <p class="letra">{{categoria}}</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

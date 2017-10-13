@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="{{colorFondo}}">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      {{ 'BusquedaDeLineas.TituloBusquedaLineas' | translate }}
+    </ion-title>
+    <ion-buttons end>
+      <img src="img/univalle.png" class="imagenLogo"/>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" #buscador placeholder="{{textoSearcher}}">
+  </ion-searchbar>
+  <ion-item class="fondoCategoria">
+    <ion-label>{{ 'BusquedaDeLineas.Categoria.TituloCategoria' | translate }} </ion-label>
+    <ion-select [(ngModel)]="seleccionado" (ionChange)="onSelectChange($event)">
+      <ion-option *ngFor="let c of categorias" [value]="c.valor">{{ 'BusquedaDeLineas.Categoria.' + c.nombre | translate}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-list *ngIf="!isCalles">
+    <ion-item *ngFor="let linea of listaVisible" (click)="mostrarInformacion(linea)">
+      <ion-thumbnail item-left>
+        <img src="{{rutaImagen}}Lineas/{{linea.Imagen}}">
+      </ion-thumbnail>
+      <h2><b>{{linea.Nombre}}</b></h2>
+      <p>{{linea.Categoria}}</p>
+    </ion-item>
+  </ion-list>
+  <div #map id="map" name="map" [ngClass]="{'hide' : !isCalles, 'show':isCalles}">
+  </div>
+</ion-content>

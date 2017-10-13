@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="{{colorFondo}}">
+    <ion-title>
+      {{nombreLinea}}
+    </ion-title>
+    <ion-buttons end>
+      <img src="img/univalle.png" class="imagenLogo"/>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #map id="map" name="map"></div>
+  <ion-fab left bottom>
+    <button ion-fab color="{{colorFondo}}" class="jellyAnimation"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top" class="itemsFab">
+      <button class="margenBoton botonesFab" color="light" ion-button round item-left (click)="cargarAllRutas()">
+        <ion-icon name="md-navigate" item-left></ion-icon>
+        <ion-label class="colorLetras">{{'Rutas.Todos' | translate}}</ion-label>
+        </button>
+        <button class="margenBoton botonesFab" color="light" ion-button round item-left *ngFor="let r of rutas" (click)="removeLine(r)">
+          <ion-icon name="md-navigate" color="{{r.Color}}" item-left></ion-icon>
+        <ion-label class="colorLetras">{{'Rutas.' + r.Sentido | translate}}</ion-label>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

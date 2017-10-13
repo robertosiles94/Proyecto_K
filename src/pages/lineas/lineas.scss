@@ -1,0 +1,50 @@
+lineas {
+    .imagen {
+        width: 20%;
+        height: 20%;
+    }
+
+    #map {
+        height: 87%;
+        width: 100%;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .select {
+        width: 100%;
+    }
+
+    .buscador {
+        width: 100%;
+    }
+
+    .iconos {
+      height: 15px;
+      width: 15px;
+    }
+
+    .fondoCategoria {
+      background-color: #f0f0f0;
+    }
+
+    .scroll-content-Principal {
+        overflow-y: hidden;
+    }
+
+    .scroll-content-Secundario {
+        overflow-y: auto;
+    }
+
+    .colorItem {
+      background-color: red;
+      width: 5px;
+      height: 100%;
+    }
+}

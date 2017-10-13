@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="{{colorFondo}}">
+        <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+        <ion-title>
+            {{'Ayuda.TituloAyuda' | translate}}
+        </ion-title>
+        <ion-buttons end>
+            <img src="img/univalle.png" class="imagenLogo"/>
+          </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-slides pager>
+        <ion-slide *ngFor="let ayuda of slides">
+            <ion-toolbar>
+                <ion-buttons end>
+                    <label ion-button>{{ 'Ayuda.' + ayuda.Numero | translate}}</label>
+                </ion-buttons>
+            </ion-toolbar>
+            <img src="img/Ayuda/{{ayuda.image}}" class="slide-image" imageViewer/>
+            <h2 class="slide-title">{{'Ayuda.Titulo' + ayuda.Numero | translate}}</h2>
+            <p>{{'Ayuda.Contenido' + ayuda.Numero | translate}}</p>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

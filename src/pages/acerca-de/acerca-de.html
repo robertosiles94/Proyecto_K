@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="{{colorFondo}}">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      {{'AcercaDe.TituloAcercaDe' | translate}}
+    </ion-title>
+    <ion-buttons end>
+      <img src="img/univalle.png" class="imagenLogo"/>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="fondo">
+    <ion-card-header style="text-align: center">
+      <b><h1 class="encabezado">{{appNombre}}</h1></b>
+    </ion-card-header>
+    <img src="img/AcercaDe/icon.png" class="imagen">
+    <ion-card-content style="text-align: center">
+      <h3 class="titulo">{{'AcercaDe.Version' | translate}}</h3>
+      <p class="letra">{{versionApp}}</p>
+      <br>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="img/AcercaDe/cbba.png">
+        </ion-avatar>
+        <h2 class="titulo">{{'AcercaDe.Contribuciones' | translate}}</h2>
+        <p text-wrap>Gobierno Autónomo Municipal de Cochabamba</p>
+      </ion-item>
+      <br>
+      <ion-item (click)="modoUnivalle()">
+        <ion-avatar item-start>
+          <img src="img/AcercaDe/univalle.jpg" class="animation-univalle">
+        </ion-avatar>
+        <h2 class="titulo">{{'AcercaDe.DesarrolladoEn' | translate}}</h2>
+        <p text-wrap><a href="http://www.univalle.edu/">Universidad Privada del Valle</a></p>
+      </ion-item>
+      <br>
+      <ion-item (click)="mostrarDesarrolladores()">
+        <ion-avatar item-start>
+          <img src="img/AcercaDe/soceisi.jpg" class="animacionSOCEISI">
+        </ion-avatar>
+        <h2 class="titulo">{{'AcercaDe.GrupoTrabajo' | translate}}</h2>
+        <p>SOCEISI TEAM</p>
+        <div *ngIf="oculto">
+          <br>
+          <h2>{{'AcercaDe.Desarrolladores' | translate}}</h2>
+          <p>Msc. Ing. Joel Alánez</p>
+          <p>José Velasco</p>
+          <p>Roberto Siles</p>
+          <p>Ismael De la Barra</p>
+          <p>Javier Mercado</p>
+          <p>Royer Arévalo</p>
+        </div>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

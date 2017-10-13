@@ -1,0 +1,32 @@
+page-mi-destino {
+    #map {
+        height: 92%;
+        width: 100%;
+    }
+
+    .cobertura {
+       color: #D42023; 
+       font-size: 13px;
+       width: 40%;
+    }
+
+    .sinInternet {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .imagenWifi {
+        width: 30%;
+        height: 30%;
+        margin-left: 37%;
+        margin-top: 45%;
+    }
+
+    .botonEmpezar {
+        width: 40%;
+    }
+
+    .fondoOpciones {
+      background-color: #f0f0f0;
+    }
+}

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar color="{{colorFondo}}">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      {{'PuntosEstrategicos.TituloPuntosEstrategicos' | translate}}
+    </ion-title>
+    <ion-buttons end>
+      <img src="img/univalle.png" class="imagenLogo"/>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-segment [(ngModel)]="seleccion" class="opciones" color="{{colorFondo}}">
+    <ion-segment-button value="Puntos" selected>
+      {{'PuntosEstrategicos.TabPuntos' | translate}}
+    </ion-segment-button>
+    <ion-segment-button value="misPuntos">
+      {{'PuntosEstrategicos.TabMisPuntos' | translate}}
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <ion-fab right bottom (click)="agregarPunto()" *ngIf="fabVisible()">
+    <button ion-fab class="jellyAnimation" color="{{colorFondo}}"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  <div [ngSwitch]="seleccion">
+    <div *ngSwitchCase="'Puntos'">
+      <ion-searchbar (ionInput)="getItems($event)" placeholder="{{textoBuscador}}"></ion-searchbar>
+      <ion-item class="fondoCategoria">
+        <ion-label>{{'PuntosEstrategicos.Categoria.TituloCategoria' | translate}}: </ion-label>
+        <ion-select [(ngModel)]="Seleccionado" (ionChange)="onSelectChange($event)">
+          <ion-option *ngFor="let c of categorias" [value]="c.Valor">{{ 'PuntosEstrategicos.Categoria.' + c.Nombre | translate}} </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <button round ion-button block color="secondary" (click)="mostrarPuntosEstrategicos()">
+          {{'Botones.BotonVerTodosLosPuntos' | translate}}
+        </button>
+      </ion-item>
+      <ion-list>
+        <ion-item *ngFor="let puntoE of lista" (click)="mostrarInformacion(puntoE)">
+          <ion-thumbnail item-left>
+            <img src="{{rutaImagen}}PuntosEstrategicos/{{puntoE.Imagen}}">
+          </ion-thumbnail>
+          <h2 text-wrap><b>{{puntoE.Nombre}}</b></h2>
+          <p>{{ 'PuntosEstrategicos.Categoria.' + puntoE.Categoria | translate}}</p>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'misPuntos'">
+      <ion-searchbar (ionInput)="getMisPuntos($event)" placeholder="{{textoBuscadorPunto}}">
+      </ion-searchbar>
+      <button *ngIf="esVisible()"></button>
+      <ion-list>
+        <ion-item *ngFor="let punto of listaMisPuntos">
+          <div (click)="mostrarInformacionPuntoFavorito(punto)">
+            <div item-left>
+              <h2><b>{{punto.nombre}}</b></h2>
+            </div>
+          </div>
+          <div item-end class="opcionesPuntos">
+            <ion-icon name="create" class="margen" color="primary" large (click)="editarMiPunto(punto)"></ion-icon>
+            <ion-icon name="trash" color="danger" large (click)="eliminarPunto(punto)"></ion-icon>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

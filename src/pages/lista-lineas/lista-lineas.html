@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar color="{{colorFondo}}">
+        <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+        <ion-title>
+            {{'IrDesdeMiUbicacion.ResultadoBusqueda' | translate}}
+        </ion-title>
+        <ion-buttons end>
+            <img src="img/univalle.png" class="imagenLogo"/>
+          </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let linea of lineas" (click)="mostrarRuta(linea)">
+            <ion-thumbnail item-left>
+                <img src="{{rutaImagen}}Lineas/{{linea.Imagen}}">
+            </ion-thumbnail>
+            <h2><b>{{linea.Nombre}}</b></h2>
+            <p>{{linea.Categoria}}</p>
+            <button ion-button clear color="{{colorFondo}}" item-end>
+                {{'Botones.VerDetalles' | translate}}
+            </button>
+        </ion-item>
+    </ion-list>
+</ion-content>

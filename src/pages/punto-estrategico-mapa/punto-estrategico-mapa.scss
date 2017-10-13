@@ -1,0 +1,29 @@
+punto-estrategico-mapa {
+    #map {
+        height: 100%;
+        width: 100%;
+    }
+    .mapa {
+        height: 100%;
+        width: 100%;
+    }
+    .margenBoton{
+        margin:5px;
+    }
+    .itemsFab{
+        align-items: inherit;
+    }
+    .botonesFab{
+        text-align: left;
+    }
+    .colorLetras{
+        color: #0078d7;
+        margin-left: 5px; 
+    }
+
+    .divCuadrado {
+        
+        width: 25px;
+        height: 35px;
+    }
+}

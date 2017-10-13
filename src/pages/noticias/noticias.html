@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-navbar color="{{colorFondo}}">
+        <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+        <ion-title>
+            {{'NoticiasTrafico.TituloNoticiasTrafico' | translate}}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="refrescarNoticias()">
+                <ion-icon name="refresh"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <img src="img/univalle.png" class="imagenLogo"/>
+          </ion-buttons>
+    </ion-navbar>
+    <div padding>
+        <ion-segment [(ngModel)]="seleccion" color="{{colorFondo}}">
+            <ion-segment-button value="Novedades" selected>
+                {{'NoticiasTrafico.TabNovedades' | translate}}
+            </ion-segment-button>
+            <ion-segment-button value="Trafico">
+                {{'NoticiasTrafico.TabTrafico' | translate}}
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div [ngSwitch]="seleccion">
+        <ion-list *ngSwitchCase="'Novedades'">
+            <ion-card *ngFor="let n of noticias" (click)="mostrarDetalle(n)">
+                <img src="{{linkImagenes}}{{n.foto}}.png" />
+                <ion-card-content>
+                    <ion-card-title>
+                        <b class="titulo">{{n.titulo}}</b>
+                        <p>publicado: {{n.fecha}}</p>
+                        <button *ngIf="!n.visto" color="{{colorFondo}}" ion-button clear color="primary" end>
+                            <ion-icon name='share-alt'></ion-icon>
+                            {{'Botones.VerDetalles' | translate}}
+                        </button>
+                    </ion-card-title>
+                    <div *ngIf="n.visto">
+                        <p class="letra">
+                            {{n.contenido}}
+                        </p>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'Trafico'">
+            <ion-card *ngFor="let trafico of NoticiasTrafico">
+                <img src="{{linkImagenesTrafico}}{{trafico.foto}}.png" />
+                <ion-card-content>
+                    <ion-card-title>
+                        <b class="titulo">{{trafico.titulo}}</b>
+                    </ion-card-title>
+                    <p class="letra">
+                        {{trafico.contenido}}
+                    </p>
+                    <button color="{{colorFondo}}" ion-button class="button button-full" color="primary" (click)="MostrarRuta(trafico)">
+                        {{'Botones.VerUbicacionTrafico' | translate}}
+                </button>
+                </ion-card-content>
+            </ion-card>
+        </ion-list>
+    </div>
+</ion-content>

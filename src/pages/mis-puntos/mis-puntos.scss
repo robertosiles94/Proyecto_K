@@ -1,0 +1,32 @@
+page-mis-puntos {
+    #map {
+        height: 87%;
+        width: 100%;
+    }
+
+    .mapa {
+        height: 90%;
+        width: 100%;
+    }
+
+    .titulo {
+       color: #D42023; 
+       font-size: 20px;
+    }
+
+    .fabMargen {
+        margin-top: 85px;
+    }
+
+    .sinInternet {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .imagenWifi {
+        width: 30%;
+        height: 30%;
+        margin-left: 37%;
+        margin-top: 150px;
+    }
+}
