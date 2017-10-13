@@ -1,0 +1,246 @@
+{
+    "Menu":
+    {
+        "Inicio":"Home",
+        "BusquedaDeLineas":"Search for public transport",
+        "IrDesdeMiUbicacion":"Go from my location",
+        "PuntosEstrategicos":"Strategic points",
+        "NoticiasTrafico":"News And Traffic",
+        "Configuracion":"Settings",
+        "Ayuda":"Help",
+        "AcercaDe":"About...",
+        "Salir":"Exit"
+    },
+    "BusquedaDeLineas": {
+        "TituloBusquedaLineas": "Search for public transport",
+        "Categoria": {
+            "TituloCategoria": "Category:",
+            "Todos": "All",
+            "Calles": "Streets",
+            "Micro": "Micro",
+            "Minibus": "Minibus",
+            "TaxiTrufi": "Taxitrufi",
+            "Zona": "Zone"
+        },
+        "BarraBusqueda": {
+            "Lineas": "Search for public transport..",
+            "Micro": "Search for Micros...",
+            "Minibus": "Search for MiniBus...",
+            "TaxiTrufi": "Search for Taxitrufi...",
+            "Zonas": "Search for Zones..."
+        },
+        "InformacionLineas": {
+            "TituloInformacionLinea":"Information of the transport",
+            "VerRutas": "Watch Routes:",
+            "CostoDelPasaje": "Cost of the ride:",
+            "Horarios": "Schedules:",
+            "CallesPrincipales": "Main Streets:",
+            "Consultas": "Question and/or Complaints:",
+            "Telefono": "Phone Copied",
+            "Categoria": "Category:"
+        },
+        "TituloAlertCalles":"Notice",
+        "ContenidoAlertCalles":"Select a street on the map in which the search will be done"
+    },
+    "Rutas": {
+        "SUROESTE-NORESTE": "SouthWest-NorthEast",
+        "NORESTE-SUROESTE": "NorthEast-SouthWest",
+        "NORTE-SUR": "North-South",
+        "SUR-NORTE": "South-North",
+        "SUR-NORESTE": "South-NorthEast",
+        "ESTE-OESTE": "East-West",
+        "OESTE-ESTE": "West-East",
+        "ESTE-SUROESTE NOCTURNO":"East-SouthWest NIGHT",
+        "SUROESTE-ESTE NOCTURNO":"SouthWest-East NIGHT",
+        "SUROESTE-ESTE":"SouthWest-East",
+        "ESTE-SUROESTE":"East-SouthWest",
+        "NORTE-SUD":"North-South",
+        "SUD-NORTE":"South-North",
+        "SUR-NoroESTE":"South-NorthWest",
+        "ESTE-SUR":"East-South",
+        "SUR-ESTE":"South-East",
+        "NOROESTE-SURESTE":"NorthWest-SouthEast",
+        "SURESTE-NoroESTE":"SouthEast-NorthWest",
+        "NORESTE-SUR":"NorthEast-South",
+        "NOROESTE-ESTE":"NorthEast-East",
+        "SURESTE-ESTE":"SouthEast-East",
+        "NOROESTE-NOROESTE":"NorthEast-NorthEast",
+        "NORTE-OESTE":"North-West",
+        "OESTE-NORTE":"West-North",
+        "SURESTE-OESTE":"SouthEast-West",
+        "OESTE-SURESTE":"West-SouthEast",
+        "OESTE-SUROESTE":"West-SouthWest",
+        "SUROESTE-OESTE":"SouthWest-West",
+        "SUDOESTE-ESTE":"SouthWest-East",
+        "ESTE-SUDOESTE":"East-SouthWest",
+        "SURESTE-NORESTE":"SouthEast-NorthEast",
+        "NORESTE-SURESTE":"NorthEast-SouthEast",
+        "OSTE-ESTE":"West-East",
+        "NOROESTE-SUR":"NorthEast-South",
+        "NOROESTE-SUROESTE":"NorthEast-SouthWest",
+        "SUROESTE-NOROESTE":"SouthWest-NorthEast",
+        "SUR-SUR":"South-South",
+        "Todos": "All"
+    },
+    "IrDesdeMiUbicacion": {
+        "TituloMiUbicacion": "Go from my location",
+        "TituloAlertSeleccioneOrigen": "Select your starting point",
+        "ContenidoAlertMiUbicacion": "My location",
+        "ContenidoAlertElegirOrigen": "Select starting point",
+        "Ubicacion": {
+            "TituloAlertUbicacion": "Select your destiny",
+            "ContenidoAlertUbicacion": "Press the place where you'd like to go on the map."
+        },
+        "Origen": {
+            "TituloAlertOrigen": "Select your starting point",
+            "ContenidoAlertOrigen": "Press your starting point on the map.",
+            "TituloAlertDestino": "Select your destiny",
+            "ContenidoAlertDestino": "Press the place where you'd like to go on the map .."
+        },
+        "ResultadoBusqueda": "Search Results",
+        "ToastLineasCercanas": "This are the closer public transportation cars that go near the place you selected.",
+        "ToastNinguno": "There are no public transportation cars that go to the points you selected, or they're out of the coverage which the system has.",
+        "ToastCobertura":"This is the coverage of the application,there are no public transportation cars registered that go outside from the coverage area.",
+        "TituloAlertErrorBusqueda":"Search Error",
+        "ContenidoAlertErrorBusqueda":"Ups, something went wrong, Verify the points you've made are correct and try again",
+        "TituloAlertGps":"GPS",
+        "ContenidoAlertGps":"The GPS is not active, please verify and try again",
+        "TituloAlertDistancia":"Short Distance",
+        "ContenidoAlertDistancia":"The distance between the two points must be greater than 300 meters.",
+        "Cobertura": "Coverage"
+    },
+    "PuntosEstrategicos": {
+        "TituloPuntosEstrategicos": "Strategic points",
+        "TabPuntos": "Strategic points",
+        "TabMisPuntos": "My points",
+        "BarraBusqueda": "Search strategic point",
+        "Categoria": {
+            "TituloCategoria": "Category",
+            "Todos": "All",
+            "Centros de Transporte": "Transport stations",
+            "Centros Educativos": "Education center",
+            "Centros de Atención en Salud": "Health center",
+            "Centros Turísticos": "Turistic center",
+            "Recreación y Cultura": "Recreation and Culture",
+            "Centros de Abasto": "Supply center",
+            "Entidades Públicas": "Public entities"
+        },
+        
+        "InformacionPuntoEstrategico": {
+            "Titulo": "Strategic points",
+            "VerPuntoMapa": "Notice the point in the map:",
+            "Categoria": "Category:",
+            "Direccion": "Address:",
+            "Lineas": "Public transportation near the strategic point:",
+            "Zona": "Zone",
+            "InformacionComplementaria": "Complementary information",
+            "Fab": "Go from my location"
+        },
+        "MisPuntos": {
+            "BarraBusqueda": "Search point",
+            "TituloAlertPunto": "Add point",
+            "ContenidoAlertPunto": "Press on the map a point and add a name",
+            "InputNombrePunto": "Point name",
+            "ToastGuardado": "Point saved successfully",
+            "ToastEliminado":"Point deleted successfully",
+            "TituloAlertElminar":"Delete",
+            "ContenidoAlertEliminar":"¿Are you sure about deleting this point from your list?"
+
+        }
+    },
+    "NoticiasTrafico": {
+        "TituloNoticiasTrafico": "News and Traffic",
+        "TabNovedades": "News",
+        "TabTrafico": "Traffic",
+        "ToastNoticias":"Updating news...",
+        "Publicado":"Published"
+    },
+    "Configuracion": {
+        "TituloConfiguracion": "Settings",
+        "TituloIdioma": "Language",
+        "ContenidoIdioma": "Select the language of your preference",
+        "MensajeIdioma": {
+            "Titulo": "Select the language of your preference",
+            "Castellano": "Castellano",
+            "Ingles": "English",
+            "Portugues": "Português",
+            "Quechua": "Quechua" 
+        },
+        "TituloActualizaciones": "Updates",
+        "ContenidoActualizaciones": "Automatic download when change and/or new routes from the public transportation",
+        "TituloNoticias": "News",
+        "ContenidoNoticias": "Recieve announcements from the city",
+        "TituloTrafico": "Traffic",
+        "ContenidoTrafico": "Recieve traffic news, street obstruction, etc.",
+        "TituloUnivalle": "Univalle mode",
+        "ContenidoUnivalle": "Changes the appearance of the application"
+    },
+    "Ayuda": {
+        "TituloAyuda": "Help",
+        "Guia1":"Guide 1",
+        "TituloGuia1":"Search for public transportation",
+        "ContenidoGuia1":"Write the public transport name you'd like to find. There are norms that allow to filter the search about streets and specific types of public transportation.",
+        "Guia2":"Guide 2",
+        "TituloGuia2":"Go from my location",
+        "ContenidoGuia2":"Choose a starting point (It could be your current location or another selected in the map).",
+        "Guia3":"Guide 3",
+        "TituloGuia3":"Go from my location",
+        "ContenidoGuia3":"Choose a destiny, and the application will show you the closer public transportation cars that can take you to your destiny.",
+        "Guia4":"Guide 4",
+        "TituloGuia4":"Go from my location",
+        "ContenidoGuia4":"The coverage shows the actual reach of the application.",
+        "Guia5":"Guide 5",
+        "TituloGuia5":"Strategic points",
+        "ContenidoGuia5":"Shows the information and location from the strategic points of the city (Supply center, Turism, Health, etc). You can  make searchs with parameters.",
+        "Guia6":"Guide 6",
+        "TituloGuia6":"Strategic points",
+        "ContenidoGuia6":"Picked a strategic point it is posible to determine the public transportation cars that go near the point, and draw the route from your current location. The application also allows you to create your own strategic points.",
+        "Guia7":"Guide 7",
+        "TituloGuia7":"News And Traffic",
+        "ContenidoGuia7":"Shows the relevant news for the city such as traffic information (Road cuts, RoadBlock, etc.). It can be switched off in the configuration panel"
+    },
+    "AcercaDe": {
+        "TituloAcercaDe": "About...",
+        "Version": "Version",
+        "Contribuciones": "Contribuitions:",
+        "DesarrolladoEn": "Developed in:",
+        "GrupoTrabajo": "Workgroup:",
+        "Desarrolladores":"Developers:"
+    },
+    "BuscandoLineas": "Searching public transportation cars",
+    "ObteniendoUbicacion": "Getting current location...",
+    "SinInternet":"You have no Internet connection",
+    "ConInternet":"Internet activated",
+    "Botones":
+    {
+        "Cancelar":"Cancel",
+        "Aceptar":"Accept",
+        "Actualizar":"Update",
+        "VolverIntentar":"Try again",
+        "Salir":"Exit",
+        "Eliminar":"Delete",
+        "Guardar":"Save",
+        "BotonVerRutas": "Routes",
+        "BotonVerTodosLosPuntos": "Notice the points in the map:",
+        "BotonVerPunto":"Place",
+        "VerDetalles":"Details",
+        "VerUbicacionTrafico":"Notice the location",
+        "ReiniciarBusqueda": "Restart search",
+        "Lineas":"Public transport",
+        "Ajustes": "Settings"
+    },
+    "Actualizacion":
+    {
+        "TituloMensaje":"Data update",
+        "ContenidoMensaje":"There is a new data update refering to the available pubic transportation disponible. It is advisable to make the update.",
+        "Toast":"Downloading data, Please wait...",
+        "TituloAlert":"Data updated",
+        "ContenidoAlert":"The database has been updated.",
+        "ToastCargandoDatos":"Wait a moment please... the application is updating the data",
+        "TituloAlertError":"Update Error",
+        "MensajeAlertError":"It wasn't possible to complete the download, this can be due to a connection problem. Please try again later."
+    },
+    "TituloMensajeSalir":"Exit Kaypi",
+    "ContenidoMensajeSalir":"¿Are you sure you'd like to exit Kaypi?"
+
+}
