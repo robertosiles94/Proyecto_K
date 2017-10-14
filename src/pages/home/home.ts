@@ -73,10 +73,10 @@ export class HomePage {
 
   llenarListadoOpciones() {
     this.pages = [
-      { title: 'Inicio', component: 'MenuPrincipal', icon: 'home' },
-      { title: 'BusquedaDeLineas', component: 'Linea', icon: 'bus' },
       { title: 'IrDesdeMiUbicacion', component: 'MiDestino', icon: 'navigate' },
+      { title: 'BusquedaDeLineas', component: 'Linea', icon: 'bus' },
       { title: 'PuntosEstrategicos', component: 'PuntoEstrategico', icon: 'pricetags' },
+      { title: 'Radio Moviles', component: 'RadioMovilPage', icon: 'car' },
       { title: 'NoticiasTrafico', component: 'Noticias', icon: 'paper' },
       { title: 'Configuracion', component: 'Configuracion', icon: 'construct' },
       { title: 'Ayuda', component: 'Ayuda', icon: 'help-circle' },
