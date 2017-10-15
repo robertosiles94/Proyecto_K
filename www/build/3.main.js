@@ -7,7 +7,7 @@ webpackJsonp([3],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mi_destino__ = __webpack_require__(884);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mi_destino__ = __webpack_require__(885);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(99);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MiDestinoModule", function() { return MiDestinoModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -44,7 +44,7 @@ MiDestinoModule = __decorate([
 
 /***/ }),
 
-/***/ 874:
+/***/ 875:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2247,7 +2247,7 @@ Geocoder = __decorate([
 
 /***/ }),
 
-/***/ 884:
+/***/ 885:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2256,7 +2256,7 @@ Geocoder = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(497);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_kaypi_services__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__ = __webpack_require__(496);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__ = __webpack_require__(874);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__ = __webpack_require__(875);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_open_native_settings__ = __webpack_require__(501);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MiDestino; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2335,7 +2335,7 @@ var MiDestino = (function () {
     MiDestino.prototype.ionViewDidLoad = function () {
         this.servicio.paginas = 0;
         this.initMap();
-        this.empezarBusqueda();
+        //this.empezarBusqueda();
     };
     MiDestino.prototype.initMap = function () {
         var _this = this;
@@ -2401,20 +2401,32 @@ var MiDestino = (function () {
         }
     };
     MiDestino.prototype.seleccioneOrigen = function () {
-        var alert = this.alertCtrl.create({
-            title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
-            subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
-            buttons: [this.servicio.traducir("Botones.Aceptar")]
+        if (this.mensajesToast != null)
+            this.mensajesToast.dismiss();
+        this.mensajesToast = this.toastCtrl.create({
+            message: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
+            position: 'bottom'
         });
-        alert.present();
+        this.mensajesToast.present(this.mensajesToast);
+        //let alert = this.alertCtrl.create({
+        //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
+        //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
+        //buttons: [this.servicio.traducir("Botones.Aceptar")]
+        //});
+        //alert.present();
     };
     MiDestino.prototype.selecioneDestino = function () {
-        var alert = this.alertCtrl.create({
-            title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertDestino"),
-            subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
-            buttons: [this.servicio.traducir("Botones.Aceptar")]
+        this.mensajesToast = this.toastCtrl.create({
+            message: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
+            position: 'bottom'
         });
-        alert.present();
+        this.mensajesToast.present(this.mensajesToast);
+        //let alert = this.alertCtrl.create({
+        //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertDestino"),
+        //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
+        //buttons: [this.servicio.traducir("Botones.Aceptar")]
+        //});
+        //alert.present();
     };
     MiDestino.prototype.clickMapa = function (punto) {
         if (this.isBusqueda) {
@@ -2429,6 +2441,8 @@ var MiDestino = (function () {
                     this.marcadoresActuales += 1;
                     this.map.panTo(punto.latLng);
                     console.log(this.servicio.obtenerLineasPorPunto(this.origen));
+                    if (this.mensajesToast != null)
+                        this.mensajesToast.dismiss();
                     this.selecioneDestino();
                 }
                 else if (this.marcadoresActuales == 1) {
@@ -2540,6 +2554,8 @@ var MiDestino = (function () {
     };
     MiDestino.prototype.mostrarLineas = function () {
         var _this = this;
+        if (this.mensajesToast != null)
+            this.mensajesToast.dismiss();
         if (this.origen != null) {
             var distancia = this.servicio.distanciaEntreDosPuntos(this.origen, this.destino);
             if (distancia > 300) {

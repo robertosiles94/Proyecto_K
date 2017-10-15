@@ -2,6 +2,7 @@
     "Menu":
     {
         "Inicio":"Home",
+        "Radio Movil": "Mobile Radio",
         "BusquedaDeLineas":"Search for public transport",
         "IrDesdeMiUbicacion":"Go from my location",
         "PuntosEstrategicos":"Strategic points",
@@ -225,7 +226,7 @@
         "BotonVerPunto":"Place",
         "VerDetalles":"Details",
         "VerUbicacionTrafico":"Notice the location",
-        "ReiniciarBusqueda": "Restart search",
+        "ReiniciarBusqueda": "Start search",
         "Lineas":"Public transport",
         "Ajustes": "Settings"
     },

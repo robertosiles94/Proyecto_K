@@ -41,6 +41,7 @@ export class MiDestino {
   isGPS: boolean;
   conexionInter: boolean;
   colorFondo: string;
+  mensajesToast: any;
 
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
@@ -59,7 +60,7 @@ export class MiDestino {
   ionViewDidLoad() {
     this.servicio.paginas = 0;
     this.initMap();
-    this.empezarBusqueda();
+    //this.empezarBusqueda();
   }
 
   initMap() {
@@ -130,21 +131,33 @@ export class MiDestino {
   }
 
   seleccioneOrigen() {
-    let alert = this.alertCtrl.create({
-      title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
-      subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
-      buttons: [this.servicio.traducir("Botones.Aceptar")]
+    if (this.mensajesToast != null)
+      this.mensajesToast.dismiss();
+    this.mensajesToast = this.toastCtrl.create({
+      message: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
+      position: 'bottom'
     });
-    alert.present();
+    this.mensajesToast.present(this.mensajesToast);
+    //let alert = this.alertCtrl.create({
+      //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
+      //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
+      //buttons: [this.servicio.traducir("Botones.Aceptar")]
+    //});
+    //alert.present();
   }
 
   selecioneDestino() {
-    let alert = this.alertCtrl.create({
-      title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertDestino"),
-      subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
-      buttons: [this.servicio.traducir("Botones.Aceptar")]
+    this.mensajesToast = this.toastCtrl.create({
+      message: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
+      position: 'bottom'
     });
-    alert.present();
+    this.mensajesToast.present(this.mensajesToast);
+    //let alert = this.alertCtrl.create({
+      //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertDestino"),
+      //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
+      //buttons: [this.servicio.traducir("Botones.Aceptar")]
+    //});
+    //alert.present();
   }
 
   clickMapa(punto) {
@@ -160,6 +173,8 @@ export class MiDestino {
           this.marcadoresActuales += 1;
           this.map.panTo(punto.latLng);
           console.log(this.servicio.obtenerLineasPorPunto(this.origen));
+          if (this.mensajesToast != null)
+            this.mensajesToast.dismiss();
           this.selecioneDestino();
         } else if (this.marcadoresActuales == 1) {
           var marker = new google.maps.Marker({
@@ -256,6 +271,8 @@ export class MiDestino {
   }
 
   mostrarLineas() {
+    if (this.mensajesToast != null)
+      this.mensajesToast.dismiss();
     if (this.origen != null) {
       var distancia = this.servicio.distanciaEntreDosPuntos(this.origen, this.destino);
       if (distancia > 300) {

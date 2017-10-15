@@ -20,7 +20,7 @@ export class HomePage {
 
   splash = true;
   tabBarElement: any;
-  rootPage: any = 'MenuPrincipal';
+  rootPage: any = 'MiDestino';
   pages: Array<{ title: string, component: any, icon: string }>;
   activePage: any;
   conexionInternet: boolean = false;
@@ -76,7 +76,7 @@ export class HomePage {
       { title: 'IrDesdeMiUbicacion', component: 'MiDestino', icon: 'navigate' },
       { title: 'BusquedaDeLineas', component: 'Linea', icon: 'bus' },
       { title: 'PuntosEstrategicos', component: 'PuntoEstrategico', icon: 'pricetags' },
-      { title: 'Radio Moviles', component: 'RadioMovilPage', icon: 'car' },
+      { title: 'Radio Movil', component: 'RadioMovilPage', icon: 'car' },
       { title: 'NoticiasTrafico', component: 'Noticias', icon: 'paper' },
       { title: 'Configuracion', component: 'Configuracion', icon: 'construct' },
       { title: 'Ayuda', component: 'Ayuda', icon: 'help-circle' },

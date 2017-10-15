@@ -1,15 +1,15 @@
 webpackJsonp([8],{
 
-/***/ 865:
+/***/ 866:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lista_lineas__ = __webpack_require__(882);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu_principal__ = __webpack_require__(884);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(99);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListaLineasModule", function() { return ListaLineasModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuPrincipalModule", function() { return MenuPrincipalModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,38 +20,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ListaLineasModule = (function () {
-    function ListaLineasModule() {
+var MenuPrincipalModule = (function () {
+    function MenuPrincipalModule() {
     }
-    return ListaLineasModule;
+    return MenuPrincipalModule;
 }());
-ListaLineasModule = __decorate([
+MenuPrincipalModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__lista_lineas__["a" /* ListaLineas */],
+            __WEBPACK_IMPORTED_MODULE_2__menu_principal__["a" /* MenuPrincipal */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__lista_lineas__["a" /* ListaLineas */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__menu_principal__["a" /* MenuPrincipal */]),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__lista_lineas__["a" /* ListaLineas */]
+            __WEBPACK_IMPORTED_MODULE_2__menu_principal__["a" /* MenuPrincipal */]
         ]
     })
-], ListaLineasModule);
+], MenuPrincipalModule);
 
-//# sourceMappingURL=lista-lineas.module.js.map
+//# sourceMappingURL=menu-principal.module.js.map
 
 /***/ }),
 
-/***/ 882:
+/***/ 884:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__ = __webpack_require__(187);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaLineas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuPrincipal; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -65,93 +65,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var ListaLineas = (function () {
-    function ListaLineas(navCtrl, navParams, servicio, toastCtrl, platform) {
+var MenuPrincipal = (function () {
+    function MenuPrincipal(navCtrl, platform, db) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.servicio = servicio;
-        this.toastCtrl = toastCtrl;
         this.platform = platform;
-        this.inicio = this.navParams.get('Inicio');
-        this.destino = this.navParams.get('Fin');
-        console.log(this.servicio.paginas);
-        this.colorFondo = this.servicio.modoApp;
-        this.rutaImagen = this.servicio.rutaImagenes;
-        if (this.destino == null) {
-            this.mostrarLineasPorUnPunto();
-        }
-        else {
-            this.getListaLineas();
-        }
+        this.db = db;
+        this.imagenesDia = [
+            'dia0.jpg',
+            'dia1.jpg',
+            'dia3.jpg',
+            'noche0.jpg',
+            'noche1.jpg'
+        ];
+        this.imagenesNoche = [];
+        this.platform.ready().then(function () {
+            //this.getEstadoDia();
+        });
+        this.colorFondo = this.db.modoApp;
     }
-    ListaLineas.prototype.ionViewDidLoad = function () {
-        if (this.destino == null) {
-            this.servicio.paginas = 3;
+    MenuPrincipal.prototype.ionViewDidLoad = function () {
+        this.db.paginas = 0;
+    };
+    MenuPrincipal.prototype.getEstadoDia = function () {
+        var d = new Date();
+        var n = d.getHours();
+        if (n < 18) {
+            this.tiempo = "Dia";
+            this.imagenesDeFondo = this.imagenesDia.sort(function () { return Math.random() - 0.5; });
+            ;
         }
         else {
-            this.servicio.paginas = 1;
+            this.tiempo = "Noche";
+            this.imagenesDeFondo = this.imagenesNoche.sort(function () { return Math.random() - 0.5; });
+            ;
         }
     };
-    ListaLineas.prototype.ionViewDidLeave = function () {
-        var _this = this;
-        this.platform.registerBackButtonAction(function () {
-            _this.navCtrl.pop();
-        });
-    };
-    ListaLineas.prototype.getListaLineas = function () {
-        //this.lineas = this.servicio.obtenerLineasPorSelecion(this.inicio, this.destino);
-        this.lineas = this.servicio.obtenerListaPorSeleccion();
-        this.sentido = this.servicio.getSentido();
-        var mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastNinguno");
-        if (this.lineas.length >= 1) {
-            mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastLineasCercanas");
-        }
-        this.mostrarMensaje(mensaje);
-    };
-    ListaLineas.prototype.mostrarLineasPorUnPunto = function () {
-        this.lineas = this.servicio.listaLineasPorUnPunto;
-        this.sentido = null;
-        this.destino = { position: null };
-        var mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastNinguno");
-        if (this.lineas.length >= 1) {
-            mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastLineasCercanas");
-        }
-        this.mostrarMensaje(mensaje);
-    };
-    ListaLineas.prototype.mostrarRuta = function (linea) {
-        var objeto = {
-            Linea: linea,
-            Puntos: {
-                Punto1: this.inicio.position,
-                Punto2: this.destino.position
-            },
-            Sentido: this.sentido
-        };
-        this.navCtrl.push('LineaRuta', objeto);
-    };
-    ListaLineas.prototype.mostrarMensaje = function (mensaje) {
-        var toast = this.toastCtrl.create({
-            message: mensaje,
-            duration: 8000,
-            position: 'bottom'
-        });
-        toast.present(toast);
-    };
-    return ListaLineas;
+    return MenuPrincipal;
 }());
-ListaLineas = __decorate([
+MenuPrincipal = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-lista-lineas',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\lista-lineas\lista-lineas.html"*/'<ion-header>\n    <ion-navbar color="{{colorFondo}}">\n        <button ion-button menuToggle icon-only>\n      <ion-icon name=\'menu\'></ion-icon>\n    </button>\n        <ion-title>\n            {{\'IrDesdeMiUbicacion.ResultadoBusqueda\' | translate}}\n        </ion-title>\n        <ion-buttons end>\n            <img src="img/univalle.png" class="imagenLogo"/>\n          </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-list>\n        <ion-item *ngFor="let linea of lineas" (click)="mostrarRuta(linea)">\n            <ion-thumbnail item-left>\n                <img src="{{rutaImagen}}Lineas/{{linea.Imagen}}">\n            </ion-thumbnail>\n            <h2><b>{{linea.Nombre}}</b></h2>\n            <p>{{linea.Categoria}}</p>\n            <button ion-button clear color="{{colorFondo}}" item-end>\n                {{\'Botones.VerDetalles\' | translate}}\n            </button>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\lista-lineas\lista-lineas.html"*/,
+        selector: 'page-menu-principal',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\menu-principal\menu-principal.html"*/'\n\n<ion-header>\n\n  <ion-navbar color="{{colorFondo}}">\n\n    <button ion-button menuToggle icon-only>\n\n      <ion-icon name=\'menu\'></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      {{\'Menu.Inicio\' | translate}}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <img src="img/univalle.png" class="imagenLogo"/>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-slides loop="true" pager>\n\n    <ion-slide *ngFor="let imga of imagenesDia">\n\n      <img src="img/MenuPrincipal/{{imga}}" class="fondoImg">\n\n    </ion-slide>\n\n  </ion-slides> \n\n</ion-content>\n\n'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\menu-principal\menu-principal.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */]])
-], ListaLineas);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */]])
+], MenuPrincipal);
 
-//# sourceMappingURL=lista-lineas.js.map
+//# sourceMappingURL=menu-principal.js.map
 
 /***/ })
 

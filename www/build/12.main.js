@@ -1,15 +1,15 @@
 webpackJsonp([12],{
 
-/***/ 861:
+/***/ 862:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(878);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__informacion_linea__ = __webpack_require__(880);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(99);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformacionLineaModule", function() { return InformacionLineaModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,42 +20,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomeModule = (function () {
-    function HomeModule() {
+var InformacionLineaModule = (function () {
+    function InformacionLineaModule() {
     }
-    return HomeModule;
+    return InformacionLineaModule;
 }());
-HomeModule = __decorate([
+InformacionLineaModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+            __WEBPACK_IMPORTED_MODULE_2__informacion_linea__["a" /* InformacionLinea */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__informacion_linea__["a" /* InformacionLinea */]),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]
+            __WEBPACK_IMPORTED_MODULE_2__informacion_linea__["a" /* InformacionLinea */]
         ]
     })
-], HomeModule);
+], InformacionLineaModule);
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=informacion-linea.module.js.map
 
 /***/ }),
 
-/***/ 878:
+/***/ 880:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_screen_orientation__ = __webpack_require__(502);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__ = __webpack_require__(496);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_network__ = __webpack_require__(498);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_sqlite__ = __webpack_require__(101);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_clipboard__ = __webpack_require__(500);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InformacionLinea; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -71,276 +68,72 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-
-var HomePage = (function () {
-    function HomePage(navCtrl, loadingCtrl, sqlite, servicio, diagnostic, network, platform, screenOrientation, alertCtrl, toastCtrl, menuCtrl) {
-        var _this = this;
+var InformacionLinea = (function () {
+    function InformacionLinea(navCtrl, servicio, navParams, clipboard, platform, toastCtrl) {
         this.navCtrl = navCtrl;
-        this.loadingCtrl = loadingCtrl;
-        this.sqlite = sqlite;
         this.servicio = servicio;
-        this.diagnostic = diagnostic;
-        this.network = network;
+        this.navParams = navParams;
+        this.clipboard = clipboard;
         this.platform = platform;
-        this.screenOrientation = screenOrientation;
-        this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
-        this.menuCtrl = menuCtrl;
-        this.splash = true;
-        this.rootPage = 'MenuPrincipal';
-        this.conexionInternet = false;
-        this.logoApp = this.servicio.logoApp;
-        this.salida = false;
-        this.llenarListadoOpciones();
-        this.platform.ready().then(function () {
-            _this.bloquearRotacion();
-            setTimeout(function () {
-                _this.abrirMenu();
-                _this.comprobarConexion();
-                if (_this.platform.is('ios')) {
-                }
-                else if (_this.platform.is('android')) {
-                }
-                else {
-                    _this.servicio.asignarPathsPorDefecto();
-                    _this.servicio.obtenerDatos();
-                    _this.servicio.cambiarIdioma("es");
-                    return;
-                }
-                if (_this.servicio.conexionInternet) {
-                    if (_this.servicio.existeNuevaVersion()) {
-                        if (_this.servicio.configuracion.actualizacion == 0)
-                            _this.actualizarApp();
-                        else
-                            _this.actualizacionAutomatica();
-                    }
-                }
-            }, 3000);
-        });
+        this.colorFondo = this.servicio.modoApp;
+        this.rutaImagen = this.servicio.rutaImagenes;
     }
-    HomePage.prototype.abrirMenu = function () {
-        this.menuCtrl.open();
+    InformacionLinea.prototype.cargarLinea = function () {
+        this.nombre = this.navParams.get('Nombre');
+        this.categoria = this.navParams.get('Categoria');
+        this.telefonos = this.navParams.get('Telefono');
+        this.calles = this.navParams.get('Calles');
+        this.pasaje = this.navParams.get('Pasajes');
+        this.imagen = this.navParams.get('Imagen');
+        this.rutas = this.navParams.get('Rutas');
+        this.horarios = this.navParams.get("Horarios");
     };
-    HomePage.prototype.llenarListadoOpciones = function () {
-        this.pages = [
-            { title: 'Inicio', component: 'MenuPrincipal', icon: 'home' },
-            { title: 'BusquedaDeLineas', component: 'Linea', icon: 'bus' },
-            { title: 'IrDesdeMiUbicacion', component: 'MiDestino', icon: 'navigate' },
-            { title: 'PuntosEstrategicos', component: 'PuntoEstrategico', icon: 'pricetags' },
-            { title: 'NoticiasTrafico', component: 'Noticias', icon: 'paper' },
-            { title: 'Configuracion', component: 'Configuracion', icon: 'construct' },
-            { title: 'Ayuda', component: 'Ayuda', icon: 'help-circle' },
-            { title: 'AcercaDe', component: 'AcercaDe', icon: 'information-circle' }
-        ];
-        this.activePage = [0];
-    };
-    HomePage.prototype.comprobarConexion = function () {
+    InformacionLinea.prototype.ionViewDidLoad = function () {
         var _this = this;
-        if (this.network.type === 'none' || this.network.type === 'unknown') {
-            this.mensajeNoInternet();
-        }
-        var disconnectSubscription = this.network.onDisconnect().subscribe(function () {
-            _this.mensajeNoInternet();
-        });
-        var connectSubscription = this.network.onConnect().subscribe(function () {
-            var toast = _this.toastCtrl.create({
-                message: _this.servicio.traducir("ConInternet"),
-                duration: 4000,
-                position: 'bottom'
-            });
-            toast.present(toast);
-            _this.servicio.conexionInternet = true;
-        });
-    };
-    HomePage.prototype.mensajeNoInternet = function () {
-        var toast = this.toastCtrl.create({
-            message: this.servicio.traducir("SinInternet"),
-            duration: 4000,
-            position: 'bottom'
-        });
-        toast.present(toast);
-        this.servicio.conexionInternet = false;
-    };
-    HomePage.prototype.actualizacionAutomatica = function () {
-        var _this = this;
-        var loader = this.loadingCtrl.create({
-            content: this.servicio.traducir("Actualizacion.Toast"),
-            duration: 10000
-        });
-        loader.present();
-        this.servicio.download();
-        setTimeout(function () {
-            if (_this.servicio.estadoDescarga) {
-                _this.servicio.obtenerDatos();
-                _this.servicio.descomprimirZip();
-                var loader_1 = _this.loadingCtrl.create({
-                    content: _this.servicio.traducir("Actualizacion.ToastCargandoDatos"),
-                    duration: 3000
-                });
-                loader_1.present();
-                setTimeout(function () {
-                    if (!_this.servicio.estadoDescarga) {
-                        _this.errorActualizacion();
-                    }
-                }, 3000);
-            }
-            else {
-                _this.errorActualizacion();
-            }
-        }, 10000);
-    };
-    HomePage.prototype.actualizarApp = function () {
-        var _this = this;
-        var alertActualizacion = this.alertCtrl.create({
-            title: this.servicio.traducir("Actualizacion.TituloMensaje"),
-            message: this.servicio.traducir("Actualizacion.ContenidoMensaje"),
-            buttons: [
-                {
-                    text: this.servicio.traducir("Botones.Cancelar"),
-                    handler: function (data) {
-                    }
-                },
-                {
-                    text: this.servicio.traducir("Botones.Actualizar"),
-                    handler: function (data) {
-                        _this.servicio.download();
-                        var loader = _this.loadingCtrl.create({
-                            content: _this.servicio.traducir("Actualizacion.Toast"),
-                            duration: 15000
-                        });
-                        loader.present();
-                        setTimeout(function () {
-                            if (_this.servicio.estadoDescarga) {
-                                console.log("esta es las lineas descargadas: ");
-                                console.log(_this.servicio.lineas);
-                                var alertActualizado = _this.alertCtrl.create({
-                                    title: _this.servicio.traducir("Actualizacion.TituloAlert"),
-                                    message: _this.servicio.traducir("Actualizacion.ContenidoAlert"),
-                                    buttons: [
-                                        {
-                                            text: _this.servicio.traducir("Botones.Aceptar"),
-                                            handler: function (data) {
-                                                _this.servicio.obtenerDatos();
-                                                _this.servicio.descomprimirZip();
-                                                var loader = _this.loadingCtrl.create({
-                                                    content: _this.servicio.traducir("Actualizacion.ToastCargandoDatos"),
-                                                    duration: 3000
-                                                });
-                                                loader.present();
-                                                setTimeout(function () {
-                                                    if (!_this.servicio.estadoDescarga) {
-                                                        _this.errorActualizacion();
-                                                    }
-                                                }, 3000);
-                                            }
-                                        }
-                                    ]
-                                });
-                                alertActualizado.present();
-                            }
-                            else {
-                                _this.errorActualizacion();
-                            }
-                        }, 15000);
-                    }
-                }
-            ]
-        });
-        alertActualizacion.present();
-    };
-    HomePage.prototype.errorActualizacion = function () {
-        var _this = this;
-        var error = this.alertCtrl.create({
-            title: this.servicio.traducir("Actualizacion.TituloAlertError"),
-            message: this.servicio.traducir("Actualizacion.MensajeAlertError"),
-            buttons: [
-                {
-                    text: this.servicio.traducir("Botones.Aceptar"),
-                    handler: function (data) {
-                        _this.salida = false;
-                    }
-                },
-                {
-                    text: this.servicio.traducir("Botones.VolverIntentar"),
-                    handler: function (data) {
-                        _this.actualizarApp();
-                    }
-                }
-            ]
-        });
-        error.present();
-    };
-    HomePage.prototype.salir = function () {
-        var _this = this;
-        var prompt = this.alertCtrl.create({
-            title: this.servicio.traducir("TituloMensajeSalir"),
-            message: this.servicio.traducir("ContenidoMensajeSalir"),
-            buttons: [
-                {
-                    text: this.servicio.traducir("Botones.Cancelar"),
-                    handler: function (data) {
-                        _this.salida = false;
-                    }
-                },
-                {
-                    text: this.servicio.traducir("Botones.Salir"),
-                    handler: function (data) {
-                        _this.platform.exitApp();
-                    }
-                }
-            ]
-        });
-        this.salida = true;
-        prompt.present();
-    };
-    HomePage.prototype.bloquearRotacion = function () {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY);
-    };
-    HomePage.prototype.openPage = function (page) {
-        this.rootPage = page.component;
-        this.activePage = page;
-    };
-    HomePage.prototype.checkActive = function (page) {
-        return page == this.activePage;
-    };
-    HomePage.prototype.pageExit = function () {
-        this.salir();
-    };
-    HomePage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.splash = false;
-        }, 4000);
+        this.servicio.paginas = 1;
+        this.cargarLinea();
+        console.log(this.servicio.paginas);
         this.platform.registerBackButtonAction(function () {
             _this.navCtrl.pop();
         });
     };
-    return HomePage;
+    InformacionLinea.prototype.ionViewDidLeave = function () {
+        console.log(this.servicio.paginas);
+    };
+    InformacionLinea.prototype.copiarTelefono = function (telf) {
+        this.clipboard.copy(telf);
+        var toast = this.toastCtrl.create({
+            message: this.servicio.traducir("BusquedaDeLineas.InformacionLineas.Telefono"),
+            duration: 1000,
+            position: 'middle'
+        });
+        toast.present(toast);
+    };
+    InformacionLinea.prototype.mostrarRuta = function () {
+        var objeto = {
+            Linea: { Rutas: this.rutas, Nombre: this.nombre },
+            Puntos: null,
+            Sentido: null
+        };
+        this.navCtrl.push('LineaRuta', objeto);
+    };
+    return InformacionLinea;
 }());
-HomePage = __decorate([
+InformacionLinea = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\home\home.html"*/'<div id="custom-overlay" [style.display]="splash ? \'flex\' : \'none\'">\n  <div class="fib">\n    <div class="Aligner-item Aligner-item--top"></div>\n    <img src="img/SplashScreen/logo.png"/>\n    <div class="Aligner-item Aling-tem--bottom"></div>\n  </div>\n</div>\n\n<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-item ion-item>\n          <img [src]="logoApp" class="logoGam"/>\n      </ion-item>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n    <ion-list class="menu">\n      <button ion-item *ngFor="let p of pages" menuToggle [class.activeHighlight]="checkActive(p)" (click)="openPage(p)" class="opciones">\n        {{ \'Menu.\' + p.title | translate}}\n        <ion-icon name="{{p.icon}}" item-left></ion-icon>\n      </button>\n      <button ion-item (click)="pageExit()" class="opciones">\n        {{\'Menu.Salir\' | translate}}\n        <ion-icon name="exit" item-left></ion-icon>\n      </button>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n<ion-nav id="nav" #content [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\home\home.html"*/
+        selector: 'informacion-linea',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\informacion-linea\informacion-linea.html"*/'<ion-header>\n\n    <ion-navbar color="{{colorFondo}}">\n\n        <ion-title>\n\n            {{\'BusquedaDeLineas.InformacionLineas.TituloInformacionLinea\' | translate}}\n\n        </ion-title>\n\n        <ion-buttons end>\n\n            <img src="img/univalle.png" class="imagenLogo"/>\n\n          </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-card class="fondo">\n\n        <ion-card-header style="text-align: center">\n\n            <b><h1 class="encabezado">{{nombre}}</h1></b>\n\n\n\n        </ion-card-header>\n\n        <img src="{{rutaImagen}}Lineas/{{imagen}}" alt="{{nombre}}" class="imagenLinea" imageViewer>\n\n        <ion-card-content style="text-align: center">\n\n            <h3 class="titulo">{{\'BusquedaDeLineas.InformacionLineas.VerRutas\' | translate}} </h3>\n\n            <button ion-button round icon-left color="{{colorFondo}}" (click)="mostrarRuta()">\n\n                <ion-icon name="navigate"></ion-icon>\n\n                {{\'Botones.BotonVerRutas\' | translate}}\n\n            </button>\n\n            <h3 class="titulo">{{\'BusquedaDeLineas.InformacionLineas.CostoDelPasaje\' | translate}} </h3>\n\n            <p class="letra" *ngFor="let p of pasaje">{{p}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'BusquedaDeLineas.InformacionLineas.Horarios\' | translate}} </h3>\n\n            <p class="letra" *ngFor="let horario of horarios">{{horario}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'BusquedaDeLineas.InformacionLineas.CallesPrincipales\' | translate}}</h3>\n\n            <p *ngFor="let calle of calles" class="letra">{{calle}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'BusquedaDeLineas.InformacionLineas.Consultas\' | translate}} </h3>\n\n            <p *ngFor="let telf of telefonos">\n\n                <button ion-button clear icon-left (click)="copiarTelefono(telf)">\n\n                    {{telf}}\n\n                <ion-icon name="copy" class="iconoTelf"></ion-icon>\n\n            </button>\n\n            </p>\n\n            <br>\n\n            <h3 class="titulo">{{\'BusquedaDeLineas.InformacionLineas.Categoria\' | translate}}</h3>\n\n            <p class="letra">{{categoria}}</p>\n\n        </ion-card-content>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\informacion-linea\informacion-linea.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_6__ionic_native_sqlite__["a" /* SQLite */],
         __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */],
-        __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__["a" /* Diagnostic */],
-        __WEBPACK_IMPORTED_MODULE_5__ionic_native_network__["a" /* Network */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__ionic_native_clipboard__["a" /* Clipboard */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */],
-        __WEBPACK_IMPORTED_MODULE_3__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* MenuController */]])
-], HomePage);
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]])
+], InformacionLinea);
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=informacion-linea.js.map
 
 /***/ })
 

@@ -1,6 +1,7 @@
 {
     "Menu": {
         "Inicio": "Inicio",
+        "Radio Movil": "Radio Móvil",
         "BusquedaDeLineas": "Búsqueda de Líneas",
         "IrDesdeMiUbicacion": "Ir Desde Mi Ubicación",
         "PuntosEstrategicos": "Puntos Estratégicos",
@@ -221,7 +222,7 @@
         "BotonVerPunto": "Punto",
         "VerDetalles": "Ver Detalles",
         "VerUbicacionTrafico": "Ver ubicación",
-        "ReiniciarBusqueda": "Reiniciar Búsqueda",
+        "ReiniciarBusqueda": "Empezar Búsqueda",
         "Lineas": "Linea",
         "Ajustes": "Ajustes"
     },

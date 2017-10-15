@@ -6,6 +6,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { AlertController } from 'ionic-angular';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { LatLng } from '@ionic-native/google-maps';
+import { ToastController } from 'ionic-angular';
 
 declare var google;
 
@@ -32,8 +33,9 @@ export class PuntoEstrategicoMapa {
   colorFondo: string;
   isGPS = false;
   origen: boolean = false;
+  mensajesToast: any;
 
-  constructor(public navCtrl: NavController, public diagnostic: Diagnostic, public navParams: NavParams, public servicio: KaypiServices, public geolocation: Geolocation, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public diagnostic: Diagnostic, public navParams: NavParams, public servicio: KaypiServices, public geolocation: Geolocation, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.cargarFab();
     this.colorFondo = this.servicio.modoApp;
   }
@@ -210,6 +212,7 @@ export class PuntoEstrategicoMapa {
           position: e.latLng,
           map: this.map
         });
+        this.mensajesToast.dismiss();
         let loader2 = this.loadingCtrl.create({
           content: this.servicio.traducir("BuscandoLineas"),
           duration: 3000
@@ -294,23 +297,29 @@ export class PuntoEstrategicoMapa {
     this.navCtrl.push('ListaLineas', puntos);
   }
 
-  seleccionOrigen() {
-    let alert = this.alertCtrl.create({
-      title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
-      subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen")
+  seleccionOrigen() { 
+    this.mensajesToast = this.toastCtrl.create({
+      message: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
+      position: 'bottom'
     });
-    alert.addButton({
-      text: this.servicio.traducir("Botones.Cancelar"),
-      handler: data => {
-        this.origen = false;
-      }
-    });
-    alert.addButton({
-      text: this.servicio.traducir("Botones.Aceptar"),
-      handler: data => {
-        this.origen = true;
-      }
-    });
-    alert.present();
+    this.mensajesToast.present(this.mensajesToast);
+    this.origen = true;
+    //let alert = this.alertCtrl.create({
+      //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
+      //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen")
+    //});
+    //alert.addButton({
+      //text: this.servicio.traducir("Botones.Cancelar"),
+      //handler: data => {
+        //this.origen = false;
+      //}
+    //});
+    //alert.addButton({
+      //text: this.servicio.traducir("Botones.Aceptar"),
+      //handler: data => {
+        //this.origen = true;
+      //}
+    //});
+    //alert.present();
   }
 }

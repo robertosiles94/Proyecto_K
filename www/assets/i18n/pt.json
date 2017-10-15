@@ -2,6 +2,7 @@
     "Menu":
     {
         "Inicio":"Início",
+        "Radio Movil": "Rádio Móvel",
         "BusquedaDeLineas":"Pesquisa de Linha de Transporte Público",
         "IrDesdeMiUbicacion":"Ir da Minha Localização",
         "PuntosEstrategicos":"Pontos Estratégicos",
@@ -223,7 +224,7 @@
         "BotonVerPunto":"Ponto",
         "VerDetalles":"Ver Detalhes",
         "VerUbicacionTrafico":"Ver localização",
-        "ReiniciarBusqueda": "Redefinir Pesquisa",
+        "ReiniciarBusqueda": "Iniciar Pesquisa",
         "Lineas":"Linhas de trasnporte",
         "Ajustes": "Configurações"
     },

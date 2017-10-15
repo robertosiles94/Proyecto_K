@@ -29,7 +29,7 @@ export class KaypiServices {
   noticiasTrafico: any;
   sentido: any;
   public paginas: any = 0;
-  cantidadMostradaLineas: any = 100;
+  cantidadMostradaLineas: any = 10;
   public listaLineasSeleccion: any = [];
   public listaLineasPorUnPunto: any;
   versionNube: any;

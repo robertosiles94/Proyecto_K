@@ -53,11 +53,11 @@ export class ListaLineas {
         //this.lineas = this.servicio.obtenerLineasPorSelecion(this.inicio, this.destino);
         this.lineas = this.servicio.obtenerListaPorSeleccion();
         this.sentido = this.servicio.getSentido();
-        var mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastNinguno");
-        if (this.lineas.length >= 1) {
-            mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastLineasCercanas");
-        }
-        this.mostrarMensaje(mensaje);
+        //var mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastNinguno");
+        //if (this.lineas.length >= 1) {
+            //mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastLineasCercanas");
+        //}
+        //this.mostrarMensaje(mensaje);
     }
 
     mostrarLineasPorUnPunto() {
