@@ -17,18 +17,14 @@ export class MyApp {
   rootPage: any = 'HomePage';
   lineas: any;
 
-  constructor(platform: Platform, 
-    public translateService: TranslateService, 
-    statusBar: StatusBar, 
-    splashScreen: SplashScreen, 
-    public db: KaypiServices, 
-    public push: Push, 
+  constructor(platform: Platform,
+    public translateService: TranslateService,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen,
+    public push: Push,
+    public db: KaypiServices,
     public sqlite: SQLite) {
     platform.ready().then(() => {
-      
-      
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
       this.registerToken();
@@ -42,6 +38,7 @@ export class MyApp {
         ignore_user: true
       });
     }).then((t: PushToken) => {
+      this.db.registerTokenServer(t.token);
       console.log('Token saved:', t.token);
     });
   }
@@ -53,17 +50,17 @@ export class MyApp {
       });
   }
 
-  private createDatabase(){
-  this.sqlite.create({
-    name: 'kaypiDB.db',
-    location: 'default'
-  })
-  .then((db) => {
-    console.log(db);
-  })
-  .catch(error =>{
-    console.error(error);
-  });
-}
+  private createDatabase() {
+    this.sqlite.create({
+      name: 'kaypiDB.db',
+      location: 'default'
+    })
+      .then((db) => {
+        console.log(db);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 }
 

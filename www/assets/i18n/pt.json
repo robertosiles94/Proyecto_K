@@ -108,7 +108,8 @@
         "ContenidoAlertGps":"O GPS não está ativado, verifique e tente novamente",
         "TituloAlertDistancia":"Curta distância",
         "ContenidoAlertDistancia":"A distância dos dois pontos deve ser superior a 300 metros.",
-        "Cobertura": "Cobertura"
+        "Cobertura": "Cobertura",
+        "Trafico": "Tráfego"
     },
     "PuntosEstrategicos": {
         "TituloPuntosEstrategicos": "Pontos Estratégicos",
@@ -124,7 +125,8 @@
             "Centros Turísticos": "Centros Turisticos",
             "Recreación y Cultura": "Recreação e Cultura",
             "Centros de Abasto": "Centros de Abastecimento",
-            "Entidades Públicas": "Entidades Públicas"
+            "Entidades Públicas": "Entidades Públicas",
+            "Servicios Municipales": "Serviços municipais"
         },
         
         "InformacionPuntoEstrategico": {
@@ -144,7 +146,7 @@
             "InputNombrePunto": "Nome Punto",
             "ToastGuardado": "Ponto salvo com sucesso",
             "ToastEliminado":"Ponto eliminado com sucesso",
-            "TituloAlertElminar":"Remover",
+            "TituloAlertEliminar":"Remover",
             "ContenidoAlertEliminar":"Tem certeza de excluir este ponto da sua lista?"
         }
     },
@@ -226,7 +228,9 @@
         "VerUbicacionTrafico":"Ver localização",
         "ReiniciarBusqueda": "Iniciar Pesquisa",
         "Lineas":"Linhas de trasnporte",
-        "Ajustes": "Configurações"
+        "Ajustes": "Configurações",
+        "Reiniciar":"Redefinir pesquisa",
+        "Cerrar":"Fechar"
     },
     "Actualizacion":
     {
@@ -239,6 +243,25 @@
         "TituloAlertError":"Erro de atualização",
         "MensajeAlertError":"Não é possível completar o download da atualização, isso pode ser devido a um problema de conexão com a Internet. Tente novamente mais tarde."
     },
+    "RadioMoviles":{
+        "Titulo":"Taxi",
+        "TituloAlert":"Como você gostaria de fazer a pesquisa",
+        "Opcion1":"Minha localização",
+        "Opcion2":"Ponto de seleção",
+        "Opcion3":"Ver todos",
+        "ToastSeleccionPunto":"Pressione um ponto no mapa",
+        "ToastError":"Não há estações de táxi nas proximidades.",
+        "DireccionModal":"Endereço",
+        "Telefonos":"Telefones",
+        "Denuncias":"Relatórios de taxas excessivas"
+    },
     "TituloMensajeSalir":"Sair do Kaypi",
-    "ContenidoMensajeSalir":"Você realmente tem certeza de que quer deixar o Kaypi?"
+    "ContenidoMensajeSalir":"Você realmente tem certeza de que quer deixar o Kaypi?",
+    "AccesosDirectos": {
+        "IrMiUbicacion": "Ir para \"Ir da minha localização\"",
+         "IrPorUnPunto" : "Ir para \"Buscar por ruas\""
+    },
+    "BusquedaPorCalle": {
+        "Titulo": "Buscar por ruas"
+    }
 }

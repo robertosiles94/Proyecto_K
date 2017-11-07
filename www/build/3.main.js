@@ -1,15 +1,15 @@
 webpackJsonp([3],{
 
-/***/ 867:
+/***/ 869:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mi_destino__ = __webpack_require__(885);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mis_puntos__ = __webpack_require__(889);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(99);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MiDestinoModule", function() { return MiDestinoModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MisPuntosPageModule", function() { return MisPuntosPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,31 +20,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MiDestinoModule = (function () {
-    function MiDestinoModule() {
+var MisPuntosPageModule = (function () {
+    function MisPuntosPageModule() {
     }
-    return MiDestinoModule;
+    return MisPuntosPageModule;
 }());
-MiDestinoModule = __decorate([
+MisPuntosPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__mi_destino__["a" /* MiDestino */],
+            __WEBPACK_IMPORTED_MODULE_2__mis_puntos__["a" /* MisPuntosPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__mi_destino__["a" /* MiDestino */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__mis_puntos__["a" /* MisPuntosPage */]),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__mi_destino__["a" /* MiDestino */]
+            __WEBPACK_IMPORTED_MODULE_2__mis_puntos__["a" /* MisPuntosPage */]
         ]
     })
-], MiDestinoModule);
+], MisPuntosPageModule);
 
-//# sourceMappingURL=mi-destino.module.js.map
+//# sourceMappingURL=mis-puntos.module.js.map
 
 /***/ }),
 
-/***/ 875:
+/***/ 877:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2247,18 +2247,17 @@ Geocoder = __decorate([
 
 /***/ }),
 
-/***/ 885:
+/***/ 889:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(497);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_kaypi_services__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(497);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__ = __webpack_require__(496);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__ = __webpack_require__(875);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_open_native_settings__ = __webpack_require__(501);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MiDestino; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__ = __webpack_require__(877);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MisPuntosPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2312,32 +2311,121 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-var MiDestino = (function () {
-    function MiDestino(navCtrl, toastCtrl, diagnostic, servicio, geolocation, loadingCtrl, alertCtrl, openNativeSettings) {
+var MisPuntosPage = (function () {
+    function MisPuntosPage(navCtrl, diagnostic, geolocation, loadingCtrl, alertCtrl, appCtrl, viewCtrl, toastCtrl, servicio, navParams) {
         this.navCtrl = navCtrl;
-        this.toastCtrl = toastCtrl;
         this.diagnostic = diagnostic;
-        this.servicio = servicio;
         this.geolocation = geolocation;
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
-        this.openNativeSettings = openNativeSettings;
-        this.select = "Ubicacion";
-        this.isCovertura = false;
-        this.isBusqueda = false;
-        this.isBloqueado = false;
-        this.valorCobertura = false;
-        this.marcadoresActuales = 0;
+        this.appCtrl = appCtrl;
+        this.viewCtrl = viewCtrl;
+        this.toastCtrl = toastCtrl;
+        this.servicio = servicio;
+        this.navParams = navParams;
+        this.nombrePunto = "";
+        this.marker = null;
         this.colorFondo = this.servicio.modoApp;
-        this.conexionInter = this.servicio.conexionInternet;
+        console.log(this.servicio.conexionInternet);
     }
-    MiDestino.prototype.ionViewDidLoad = function () {
-        this.servicio.paginas = 0;
+    MisPuntosPage.prototype.ionViewDidLoad = function () {
         this.initMap();
-        //this.empezarBusqueda();
+        this.servicio.paginas = 1;
+        console.log(this.servicio.paginas);
+        this.mostrarInformacion();
+        this.opcion = this.navParams.get("Opcion");
+        if (this.opcion == "modificar") {
+            this.mostrarInformacionPunto(this.navParams.get("Punto"));
+        }
     };
-    MiDestino.prototype.initMap = function () {
+    MisPuntosPage.prototype.ionViewDidLeave = function () {
+        console.log(this.servicio.paginas);
+    };
+    MisPuntosPage.prototype.desdeUbicacion = function () {
+        var _this = this;
+        this.checkLocation();
+        setTimeout(function () {
+            if (_this.isGPS) {
+                _this.miUbucacion();
+            }
+        }, 1000);
+    };
+    MisPuntosPage.prototype.miUbucacion = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            content: this.servicio.traducir("ObteniendoUbicacion")
+        });
+        loader.present();
+        this.geolocation.getCurrentPosition()
+            .then(function (position) {
+            _this.cargarMiPosicion(position, loader);
+        });
+        setTimeout(function () {
+            loader.dismiss();
+        }, 15000);
+    };
+    MisPuntosPage.prototype.checkLocation = function () {
+        var _this = this;
+        this.diagnostic.isLocationEnabled().then(function (isAvailable) {
+            if (!isAvailable) {
+                var alert_1 = _this.alertCtrl.create({
+                    title: _this.servicio.traducir("IrDesdeMiUbicacion.TituloAlertGps"),
+                    subTitle: _this.servicio.traducir("IrDesdeMiUbicacion.ContenidoAlertGps"),
+                    buttons: [_this.servicio.traducir("Botones.Aceptar")]
+                });
+                alert_1.present();
+                _this.isGPS = false;
+            }
+            else {
+                _this.isGPS = true;
+            }
+        }).catch(function (e) {
+        });
+    };
+    MisPuntosPage.prototype.cargarMiPosicion = function (position, loader) {
+        return __awaiter(this, void 0, void 0, function () {
+            var latitude, longitud, myPosition;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (this.marker != null) {
+                            this.marker.setMap(null);
+                        }
+                        return [4 /*yield*/, position.coords.latitude];
+                    case 1:
+                        latitude = _a.sent();
+                        return [4 /*yield*/, position.coords.longitude];
+                    case 2:
+                        longitud = _a.sent();
+                        myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
+                        this.marker = new google.maps.Marker({
+                            position: myPosition,
+                            map: this.map,
+                            icon: 'img/PuntosEstrategicos/Marcadores/favorito.png',
+                            title: 'Mi Posicion!'
+                        });
+                        this.map.setCenter(myPosition);
+                        loader.dismiss();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    MisPuntosPage.prototype.mostrarInformacionPunto = function (punto) {
+        this.nombrePunto = punto.nombre;
+        var latLng = new google.maps.LatLng(punto.lat, punto.lng);
+        this.marker = new google.maps.Marker({
+            position: latLng,
+            icon: 'img/PuntosEstrategicos/Marcadores/favorito.png',
+            map: this.map
+        });
+        this.map.panTo(latLng);
+        this.map.setZoom(14);
+    };
+    MisPuntosPage.prototype.esPuntoValido = function () {
+        return this.nombrePunto.trim() == "" || this.marker == null;
+    };
+    MisPuntosPage.prototype.initMap = function () {
         var _this = this;
         var latLng = new google.maps.LatLng(-17.393835, -66.156946);
         var mapOptions = {
@@ -2347,336 +2435,85 @@ var MiDestino = (function () {
         };
         this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
         google.maps.event.addListener(this.map, 'click', function (e) {
-            _this.clickMapa(e);
-        });
-    };
-    MiDestino.prototype.hayListado = function () {
-        return this.servicio.listaLineasSeleccion.length != 0;
-    };
-    MiDestino.prototype.empezarBusqueda = function () {
-        var _this = this;
-        this.limpiarPuntos();
-        this.servicio.listaLineasSeleccion = [];
-        this.isBloqueado = true;
-        this.isBusqueda = true;
-        this.valorCobertura = false;
-        var alert = this.alertCtrl.create();
-        alert.setTitle(this.servicio.traducir("IrDesdeMiUbicacion.TituloAlertSeleccioneOrigen"));
-        alert.addInput({
-            type: 'radio',
-            label: this.servicio.traducir("IrDesdeMiUbicacion.ContenidoAlertMiUbicacion"),
-            value: 'miUbicacion',
-            checked: true
-        });
-        alert.addInput({
-            type: 'radio',
-            label: this.servicio.traducir("IrDesdeMiUbicacion.ContenidoAlertElegirOrigen"),
-            value: 'eleccion',
-            checked: false
-        });
-        alert.addButton({
-            text: this.servicio.traducir("Botones.Cancelar"),
-            handler: function (data) {
-                _this.isBusqueda = false;
-                _this.isBloqueado = false;
+            _this.puntoLat = e.latLng.lat();
+            _this.puntoLng = e.latLng.lng();
+            var latLng = new google.maps.LatLng(_this.puntoLat, _this.puntoLng);
+            if (_this.marker != null) {
+                _this.marker.setMap(null);
             }
+            _this.marker = new google.maps.Marker({
+                position: latLng,
+                icon: 'img/PuntosEstrategicos/Marcadores/favorito.png',
+                map: _this.map
+            });
+            _this.map.panTo(latLng);
         });
-        alert.addButton({
-            text: this.servicio.traducir("Botones.Aceptar"),
-            handler: function (data) {
-                _this.testRadioOpen = false;
-                _this.seleccionOrigen(data);
-            }
-        });
-        alert.present();
     };
-    MiDestino.prototype.seleccionOrigen = function (opcion) {
-        if (opcion == "miUbicacion") {
-            this.desdeUbicacion();
+    MisPuntosPage.prototype.agregarPunto = function () {
+        var miPunto;
+        if (this.opcion == "modificar") {
+            miPunto = {
+                nombre: this.nombrePunto,
+                lat: this.marker.position.lat(),
+                lng: this.marker.position.lng(),
+                id: this.navParams.get("Punto").id
+            };
+            this.servicio.update(miPunto);
+            this.mostrarMensaje(this.servicio.traducir("PuntosEstrategicos.MisPuntos.ToastGuardado"));
+            this.servicio.getMisPuntos();
         }
         else {
-            this.seleccioneOrigen();
-            this.marcadorYo = null;
-            this.marcadoresActuales = 0;
+            miPunto = {
+                nombre: this.nombrePunto,
+                lat: this.marker.position.lat(),
+                lng: this.marker.position.lng()
+            };
+            this.servicio.create(miPunto);
+            this.mostrarMensaje(this.servicio.traducir("PuntosEstrategicos.MisPuntos.ToastGuardado"));
+            this.servicio.getMisPuntos();
         }
+        this.viewCtrl.dismiss();
     };
-    MiDestino.prototype.seleccioneOrigen = function () {
-        if (this.mensajesToast != null)
-            this.mensajesToast.dismiss();
-        this.mensajesToast = this.toastCtrl.create({
-            message: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
-            position: 'bottom'
-        });
-        this.mensajesToast.present(this.mensajesToast);
-        //let alert = this.alertCtrl.create({
-        //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
-        //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
-        //buttons: [this.servicio.traducir("Botones.Aceptar")]
-        //});
-        //alert.present();
-    };
-    MiDestino.prototype.selecioneDestino = function () {
-        this.mensajesToast = this.toastCtrl.create({
-            message: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
-            position: 'bottom'
-        });
-        this.mensajesToast.present(this.mensajesToast);
-        //let alert = this.alertCtrl.create({
-        //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertDestino"),
-        //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
-        //buttons: [this.servicio.traducir("Botones.Aceptar")]
-        //});
-        //alert.present();
-    };
-    MiDestino.prototype.clickMapa = function (punto) {
-        if (this.isBusqueda) {
-            if (this.marcadoresActuales < 2) {
-                if (this.marcadoresActuales == 0) {
-                    var marker = new google.maps.Marker({
-                        position: punto.latLng,
-                        icon: 'img/BusquedaUbicacion/Marcadores/marcadorIni.png',
-                        map: this.map
-                    });
-                    this.origen = marker;
-                    this.marcadoresActuales += 1;
-                    this.map.panTo(punto.latLng);
-                    console.log(this.servicio.obtenerLineasPorPunto(this.origen));
-                    if (this.mensajesToast != null)
-                        this.mensajesToast.dismiss();
-                    this.selecioneDestino();
-                }
-                else if (this.marcadoresActuales == 1) {
-                    var marker = new google.maps.Marker({
-                        position: punto.latLng,
-                        icon: 'img/BusquedaUbicacion/Marcadores/marcadorFin.png',
-                        map: this.map
-                    });
-                    this.destino = marker;
-                    this.marcadoresActuales += 1;
-                    this.map.panTo(punto.latLng);
-                    this.selecionados();
-                    this.mostrarLineas();
-                }
-            }
-        }
-    };
-    MiDestino.prototype.getMyCurrentPosition = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var loader;
-            return __generator(this, function (_a) {
-                loader = this.loadingCtrl.create({
-                    content: this.servicio.traducir("ObteniendoUbicacion")
-                });
-                loader.present();
-                this.geolocation.getCurrentPosition()
-                    .then(function (position) {
-                    _this.cargarMiPosicion(position, loader);
-                });
-                setTimeout(function () {
-                    loader.dismiss();
-                }, 15000);
-                return [2 /*return*/];
-            });
-        });
-    };
-    MiDestino.prototype.desdeUbicacion = function () {
-        var _this = this;
-        this.checkLocation();
-        setTimeout(function () {
-            if (_this.isGPS) {
-                _this.getMyCurrentPosition();
-            }
-            else {
-                _this.marcadorYo = null;
-                _this.marcadoresActuales = 0;
-                _this.isBusqueda = false;
-            }
-        }, 1000);
-    };
-    MiDestino.prototype.selecionDePuntos = function () {
-        this.limpiarPuntos();
-        this.marcadoresActuales = 0;
-    };
-    MiDestino.prototype.cargarMiPosicion = function (position, loader) {
-        return __awaiter(this, void 0, void 0, function () {
-            var latitude, longitud, myPosition, marker;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, position.coords.latitude];
-                    case 1:
-                        latitude = _a.sent();
-                        return [4 /*yield*/, position.coords.longitude];
-                    case 2:
-                        longitud = _a.sent();
-                        myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
-                        marker = new google.maps.Marker({
-                            position: myPosition,
-                            map: this.map,
-                            icon: 'img/BusquedaUbicacion/Marcadores/marcadorYo.png',
-                            title: 'Mi Posicion!'
-                        });
-                        this.marcadoresActuales = 1;
-                        this.marcadorYo = marker;
-                        this.miPosicion = myPosition;
-                        this.origen = this.marcadorYo;
-                        this.map.setCenter(myPosition);
-                        this.map.setZoom(14);
-                        loader.dismiss();
-                        this.selecioneDestino();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    MiDestino.prototype.selecionados = function () {
-        this.puntosSelecionados = this.origen !== undefined && this.destino !== undefined;
-    };
-    MiDestino.prototype.listadoLineas = function () {
-        var puntos = {
-            Inicio: this.origen,
-            Fin: this.destino
-        };
-        this.navCtrl.push('ListaLineas', puntos);
-    };
-    MiDestino.prototype.limpiarPuntos = function () {
-        if (this.origen !== undefined) {
-            this.origen.setMap(null);
-            this.origen = undefined;
-            this.marcadoresActuales--;
-        }
-        if (this.destino !== undefined) {
-            this.destino.setMap(null);
-            this.destino = undefined;
-            this.marcadoresActuales--;
-        }
-        this.selecionados();
-    };
-    MiDestino.prototype.mostrarLineas = function () {
-        var _this = this;
-        if (this.mensajesToast != null)
-            this.mensajesToast.dismiss();
-        if (this.origen != null) {
-            var distancia = this.servicio.distanciaEntreDosPuntos(this.origen, this.destino);
-            if (distancia > 300) {
-                var loader = this.loadingCtrl.create({
-                    content: this.servicio.traducir("BuscandoLineas"),
-                    duration: 3000
-                });
-                loader.present();
-                this.servicio.obtenerLineasPorSelecion(this.origen, this.destino);
-                setTimeout(function () {
-                    var puntos = {
-                        Inicio: _this.origen,
-                        Fin: _this.destino
-                    };
-                    _this.navCtrl.push('ListaLineas', puntos);
-                }, 3000);
-            }
-            else {
-                var alert_1 = this.alertCtrl.create({
-                    title: this.servicio.traducir("IrDesdeMiUbicacion.TituloAlertDistancia"),
-                    subTitle: this.servicio.traducir("IrDesdeMiUbicacion.ContenidoAlertDistancia"),
-                    buttons: [this.servicio.traducir("Botones.Aceptar")]
-                });
-                alert_1.present();
-            }
-        }
-        else {
-            var alert_2 = this.alertCtrl.create({
-                title: this.servicio.traducir("IrDesdeMiUbicacion.TituloAlertErrorBusqueda"),
-                subTitle: this.servicio.traducir("IrDesdeMiUbicacion.ContenidoAlertErrorBusqueda"),
-                buttons: [this.servicio.traducir("Botones.Aceptar")]
-            });
-            alert_2.present();
-        }
-        this.isBusqueda = false;
-        this.isBloqueado = false;
-    };
-    MiDestino.prototype.mostrarMensaje = function () {
+    MisPuntosPage.prototype.mostrarInformacion = function () {
         var toast = this.toastCtrl.create({
-            message: this.servicio.traducir("IrDesdeMiUbicacion.ToastCobertura"),
-            duration: 6000,
+            message: this.servicio.traducir("PuntosEstrategicos.MisPuntos.ContenidoAlertPunto"),
+            duration: 3000,
+            position: 'middle'
+        });
+        toast.present(toast);
+    };
+    MisPuntosPage.prototype.mostrarMensaje = function (mensaje) {
+        var toast = this.toastCtrl.create({
+            message: mensaje,
+            duration: 2000,
             position: 'bottom'
         });
         toast.present(toast);
     };
-    MiDestino.prototype.mostrarCobertura = function () {
-        if (this.valorCobertura) {
-            var puntos = this.servicio.obtenerZonas();
-            this.covertura = [];
-            for (var i = 0; i < puntos.length; i++) {
-                var covertura = new google.maps.Polygon({
-                    path: puntos[i].Puntos,
-                    geodesic: true,
-                    strokeColor: "#FF0000",
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: "#FF0000",
-                    fillOpacity: 0.35
-                });
-                covertura.setMap(this.map);
-                this.covertura.push(covertura);
-            }
-            this.isCovertura = true;
-            this.mostrarMensaje();
-        }
-        else {
-            for (var i = 0; i < this.covertura.length; i++) {
-                this.covertura[i].setMap(null);
-            }
-            this.covertura = [];
-            this.isCovertura = false;
-        }
-    };
-    MiDestino.prototype.checkLocation = function () {
-        var _this = this;
-        this.diagnostic.isLocationEnabled().then(function (isAvailable) {
-            if (!isAvailable) {
-                var alert_3 = _this.alertCtrl.create({
-                    title: _this.servicio.traducir("IrDesdeMiUbicacion.TituloAlertGps"),
-                    subTitle: _this.servicio.traducir("IrDesdeMiUbicacion.ContenidoAlertGps")
-                });
-                alert_3.addButton({
-                    text: _this.servicio.traducir("Botones.Aceptar")
-                });
-                alert_3.addButton({
-                    text: _this.servicio.traducir("Botones.Ajustes"),
-                    handler: function (data) {
-                        _this.openNativeSettings.open('location');
-                    }
-                });
-                alert_3.present();
-                _this.isGPS = false;
-            }
-            else {
-                _this.isGPS = true;
-            }
-        }).catch(function (e) {
-        });
-    };
-    return MiDestino;
+    return MisPuntosPage;
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('map'),
     __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */])
-], MiDestino.prototype, "mapElement", void 0);
-MiDestino = __decorate([
+], MisPuntosPage.prototype, "mapElement", void 0);
+MisPuntosPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-mi-destino',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\mi-destino\mi-destino.html"*/'<!--\n  Generated template for the MiDestino page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar color="{{colorFondo}}">\n    <button ion-button menuToggle icon-only>\n      <ion-icon name=\'menu\'></ion-icon>\n    </button>\n    <ion-title>\n      {{\'IrDesdeMiUbicacion.TituloMiUbicacion\' | translate}}\n    </ion-title>\n    <ion-buttons end>\n      <img src="img/univalle.png" class="imagenLogo"/>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <div>\n    <ion-item class="fondoOpciones">\n      <button round [disabled]="isCovertura" class="botonEmpezar jellyAnimation" ion-button color="secondary"\n       item-start (click)="empezarBusqueda()" style="text-transform: none;">\n       {{\'Botones.ReiniciarBusqueda\' | translate}}\n      </button>\n      <h2 class="cobertura" item-end><b>{{\'IrDesdeMiUbicacion.Cobertura\' | translate}}</b></h2>\n      <ion-toggle item-end color="danger" [(ngModel)]="valorCobertura" (ionChange)="mostrarCobertura()"></ion-toggle>\n    </ion-item>\n  </div>\n  <div #map id="map" name="map">\n  </div>\n  <ion-fab left bottom (click)="listadoLineas()" *ngIf="hayListado()">\n    <button ion-fab class="jellyAnimation" color="{{colorFondo}}"><ion-icon name="list"></ion-icon></button>\n  </ion-fab>\n</ion-content>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\mi-destino\mi-destino.html"*/,
+        selector: 'page-mis-puntos',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\mis-puntos\mis-puntos.html"*/'<!--\n  Generated template for the MisPuntosPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="{{colorFondo}}">\n    <ion-title>{{\'PuntosEstrategicos.MisPuntos.TituloAlertPunto\' | translate}}</ion-title>\n    <ion-buttons end>\n      <img src="img/univalle.png" class="imagenLogo"/>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <div class="entrada">\n    <ion-item>\n      <ion-label floating class="titulo">{{\'PuntosEstrategicos.MisPuntos.InputNombrePunto\' | translate}}</ion-label>\n      <ion-input type="text" [(ngModel)]="nombrePunto"></ion-input>\n      <button item-end ion-button round icon-left color="primary" [disabled]="esPuntoValido()" (click)="agregarPunto()">\n         <ion-icon name="bookmark"></ion-icon>\n         {{\'Botones.Guardar\' | translate}}\n      </button>\n    </ion-item>\n  </div>\n  <br>\n  <div>\n  <ion-fab right top class="fabMargen" (click)="desdeUbicacion()">\n    <button ion-fab class="jellyAnimation" color="{{colorFondo}}"><ion-icon name="pin"></ion-icon></button>\n  </ion-fab>\n  </div>\n  <div #map id="map" name="map">\n  </div>\n</ion-content>\n<script async defer\n      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6YW7h8SJcje8QK0kPBIQuD_KwR2JiDzI&callback=initMap">\n</script>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\mis-puntos\mis-puntos.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__["a" /* Diagnostic */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_kaypi_services__["a" /* KaypiServices */],
-        __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_6__ionic_native_open_native_settings__["a" /* OpenNativeSettings */]])
-], MiDestino);
+        __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* App */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+], MisPuntosPage);
 
-//# sourceMappingURL=mi-destino.js.map
+//# sourceMappingURL=mis-puntos.js.map
 
 /***/ })
 

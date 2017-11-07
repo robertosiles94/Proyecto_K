@@ -3,8 +3,8 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { KaypiServices } from '../../providers/kaypi-services';
 import { LoadingController } from 'ionic-angular';
+import { Select } from 'ionic-angular';
 
-declare var google;
 
 @IonicPage()
 @Component({
@@ -13,9 +13,6 @@ declare var google;
 })
 export class Linea {
 
-  @ViewChild('map') mapElement: ElementRef;
-  @ViewChild('buscador') buscador;
-  map: any;
   lineas: any;
   listaVisible: any;
   categorias: any;
@@ -23,7 +20,7 @@ export class Linea {
   colorFondo: string;
   rutaImagen: string;
   seleccion: string = "Lineas";
-  isCalles: boolean = false;
+  selectControl: Select;
   //img/Lineas/{{linea.Categoria}}
   textoSearcher: string = this.servicio.traducir("BusquedaDeLineas.BarraBusqueda.Lineas");
 
@@ -33,7 +30,13 @@ export class Linea {
     this.listaVisible = this.lineas;
     this.colorFondo = this.servicio.modoApp;
     this.rutaImagen = this.servicio.rutaImagenes;
-    
+
+  }
+
+  ionViewWillEnter() {
+    this.seleccionado = "Todos";
+    this.cargarCategorias();
+    this.listaVisible = this.lineas;
   }
 
   onSelectChange(event: string) {
@@ -44,51 +47,12 @@ export class Linea {
       } else {
         this.textoSearcher = this.servicio.traducir("BusquedaDeLineas.BarraBusqueda.Zonas");
       }
-      this.isCalles = false;
       this.ordenarLista(this.listaVisible);
     } else if (this.seleccionado == "Calles") {
-      this.isCalles = true;
-      this.buscador.setFocus();
-      this.mostrarMensajeCalle();
+      this.navCtrl.push('BusquedaCallePage');
     } else {
-      this.isCalles = false;
       this.cargarCategoria(event);
     }
-  }
-
-  ionViewDidLoad() {
-    this.initMap();
-    this.servicio.paginas = 0;
-    this.isCalles = false;
-  }
-
-  initMap() {
-    let latLng = new google.maps.LatLng(-17.393835, -66.156946);
-    let mapOptions = {
-      center: latLng,
-      zoom: 13,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    google.maps.event.addListener(this.map, 'click', e => {
-      this.clickMapa(e);
-    });
-  }
-
-  clickMapa(punto) {
-    let loader = this.loadingCtrl.create({
-      content: this.servicio.traducir("BuscandoLineas"),
-      duration: 2000
-    });
-    loader.present();
-    this.servicio.obtenerLineasPorPunto({position: punto.latLng});
-    setTimeout(() => {
-      var puntos = {
-        Inicio: {position: punto.latLng},
-        Fin: null
-      };
-      this.navCtrl.push('ListaLineas', puntos);
-    }, 2000);
   }
 
   cargarCategoria(categoria) {
@@ -130,7 +94,7 @@ export class Linea {
       }
     }
     this.categorias.push({ nombre: "Zona", valor: "Zona" });
-    
+
   }
 
   existeCategoria(lista, categoria) {
@@ -167,18 +131,5 @@ export class Linea {
         })
       }
     }
-  }
-
-  mostrarMensajeCalle() {
-    let alert = this.alertCtrl.create({
-      title: this.servicio.traducir("BusquedaDeLineas.TituloAlertCalles"),
-      message: this.servicio.traducir("BusquedaDeLineas.ContenidoAlertCalles"),
-      buttons: [
-        {
-          text: this.servicio.traducir("Botones.Aceptar")
-        }
-      ]
-    });
-    alert.present();
   }
 }

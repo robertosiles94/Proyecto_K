@@ -30486,6 +30486,16 @@ ayuda p b {
   color: #000000;
 }
 
+page-busqueda-calle #map {
+  height: 100%;
+  width: 100%;
+}
+
+page-busqueda-calle .mapa {
+  height: 100%;
+  width: 100%;
+}
+
 page-configuracion .salto {
   word-break: break-all;
   width: 100%;
@@ -31381,6 +31391,10 @@ page-mi-destino .fondoOpciones {
   background-color: #f0f0f0;
 }
 
+page-mi-destino .posicionAccesoDirecto {
+  margin-top: 30px;
+}
+
 page-mis-puntos #map {
   height: 87%;
   width: 100%;
@@ -31410,6 +31424,34 @@ page-mis-puntos .imagenWifi {
   height: 30%;
   margin-left: 37%;
   margin-top: 150px;
+}
+
+page-modal .imagen {
+  width: 90%;
+  height: 30%;
+  padding-left: 15%;
+}
+
+page-modal .titulo {
+  color: #D42023;
+  font-size: 20px;
+}
+
+page-modal .encabezado {
+  color: #757575;
+  font-size: 30px;
+}
+
+page-modal .iconoTelf {
+  margin-left: 8%;
+}
+
+page-modal .letra {
+  font-size: 15px;
+}
+
+page-modal .fondo {
+  background: #F6F6F6;
 }
 
 page-noticias .titulo {
@@ -31513,6 +31555,19 @@ puntos-estrategicos-info .letra {
 
 puntos-estrategicos-info .fondo {
   background: #F6F6F6;
+}
+
+page-radio-movil #map {
+  height: 92%;
+  width: 100%;
+}
+
+page-radio-movil .colorFondo {
+  color: #0078d7;
+}
+
+page-radio-movil .fondoOpciones {
+  background-color: #f0f0f0;
 }
 
 trafico-ruta #map {

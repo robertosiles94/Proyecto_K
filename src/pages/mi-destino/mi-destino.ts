@@ -42,6 +42,9 @@ export class MiDestino {
   conexionInter: boolean;
   colorFondo: string;
   mensajesToast: any;
+  trafico: boolean = false;
+  trafficLayer: any;
+  colorTrafico: string = "danger";
 
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
@@ -63,17 +66,37 @@ export class MiDestino {
     //this.empezarBusqueda();
   }
 
+  ionViewDidLeave() {
+    this.mensajesToast.dismiss();
+  }
+
+  goToBusquedaPorCalles() {
+    this.navCtrl.push('BusquedaCallePage');
+  }
+
   initMap() {
     let latLng = new google.maps.LatLng(-17.393835, -66.156946);
     let mapOptions = {
       center: latLng,
       zoom: 13,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     google.maps.event.addListener(this.map, 'click', e => {
       this.clickMapa(e);
     });
+  }
+
+  verTrafico() {
+    if(this.trafico) {
+      this.trafficLayer = new google.maps.TrafficLayer();
+      this.trafficLayer.setMap(this.map);
+      //this.trafico = true;
+    } else {
+      this.trafficLayer.setMap(null);
+      //this.trafico = false;
+    }
   }
 
   hayListado() {
@@ -138,12 +161,6 @@ export class MiDestino {
       position: 'bottom'
     });
     this.mensajesToast.present(this.mensajesToast);
-    //let alert = this.alertCtrl.create({
-      //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
-      //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
-      //buttons: [this.servicio.traducir("Botones.Aceptar")]
-    //});
-    //alert.present();
   }
 
   selecioneDestino() {
@@ -152,12 +169,6 @@ export class MiDestino {
       position: 'bottom'
     });
     this.mensajesToast.present(this.mensajesToast);
-    //let alert = this.alertCtrl.create({
-      //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertDestino"),
-      //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertDestino"),
-      //buttons: [this.servicio.traducir("Botones.Aceptar")]
-    //});
-    //alert.present();
   }
 
   clickMapa(punto) {
@@ -312,14 +323,17 @@ export class MiDestino {
   mostrarMensaje() {
     let toast = this.toastCtrl.create({
       message: this.servicio.traducir("IrDesdeMiUbicacion.ToastCobertura"),
-      duration: 6000,
+      showCloseButton: true,
+      closeButtonText: 'Ok',
       position: 'bottom'
     });
     toast.present(toast);
   }
 
   mostrarCobertura() {
-    if (this.valorCobertura) {
+    if (!this.valorCobertura) {
+      this.colorTrafico = "secondary";
+      this.valorCobertura = true;
       var puntos = this.servicio.obtenerZonas();
       this.covertura = [];
       for (let i = 0; i < puntos.length; i++) {
@@ -338,6 +352,8 @@ export class MiDestino {
       this.isCovertura = true;
       this.mostrarMensaje();
     } else {
+      this.valorCobertura = false;
+      this.colorTrafico = "danger";
       for (let i = 0; i < this.covertura.length; i++) {
         this.covertura[i].setMap(null);
       }

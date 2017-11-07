@@ -40,9 +40,12 @@ export class HomePage {
     public menuCtrl: MenuController) {
     this.llenarListadoOpciones();
     this.platform.ready().then(() => {
-      this.bloquearRotacion();
+      if (this.platform.is('ios') || this.platform.is('android')) {
+        this.bloquearRotacion();
+      }
+      
       setTimeout(() => {
-        this.abrirMenu();
+        //this.abrirMenu();
         this.comprobarConexion();
         if (this.platform.is('ios')) {
 

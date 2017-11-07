@@ -1,13 +1,13 @@
 webpackJsonp([6],{
 
-/***/ 872:
+/***/ 874:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos__ = __webpack_require__(890);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos__ = __webpack_require__(894);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(99);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PuntoEstrategicoModule", function() { return PuntoEstrategicoModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -44,7 +44,7 @@ PuntoEstrategicoModule = __decorate([
 
 /***/ }),
 
-/***/ 890:
+/***/ 894:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -260,7 +260,7 @@ PuntoEstrategico = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'puntos-estrategicos',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\puntos-estrategicos\puntos-estrategicos.html"*/'<ion-header>\n\n  <ion-navbar color="{{colorFondo}}">\n\n    <button ion-button menuToggle icon-only>\n\n      <ion-icon name=\'menu\'></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      {{\'PuntosEstrategicos.TituloPuntosEstrategicos\' | translate}}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <img src="img/univalle.png" class="imagenLogo"/>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n  <ion-segment [(ngModel)]="seleccion" class="opciones" color="{{colorFondo}}">\n\n    <ion-segment-button value="Puntos" selected>\n\n      {{\'PuntosEstrategicos.TabPuntos\' | translate}}\n\n    </ion-segment-button>\n\n    <ion-segment-button value="misPuntos">\n\n      {{\'PuntosEstrategicos.TabMisPuntos\' | translate}}\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-fab right bottom (click)="agregarPunto()" *ngIf="fabVisible()">\n\n    <button ion-fab class="jellyAnimation" color="{{colorFondo}}"><ion-icon name="add"></ion-icon></button>\n\n  </ion-fab>\n\n  <div [ngSwitch]="seleccion">\n\n    <div *ngSwitchCase="\'Puntos\'">\n\n      <ion-searchbar (ionInput)="getItems($event)" placeholder="{{textoBuscador}}"></ion-searchbar>\n\n      <ion-item class="fondoCategoria">\n\n        <ion-label>{{\'PuntosEstrategicos.Categoria.TituloCategoria\' | translate}}: </ion-label>\n\n        <ion-select [(ngModel)]="Seleccionado" (ionChange)="onSelectChange($event)">\n\n          <ion-option *ngFor="let c of categorias" [value]="c.Valor">{{ \'PuntosEstrategicos.Categoria.\' + c.Nombre | translate}} </ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button round ion-button block color="secondary" (click)="mostrarPuntosEstrategicos()">\n\n          {{\'Botones.BotonVerTodosLosPuntos\' | translate}}\n\n        </button>\n\n      </ion-item>\n\n      <ion-list>\n\n        <ion-item *ngFor="let puntoE of lista" (click)="mostrarInformacion(puntoE)">\n\n          <ion-thumbnail item-left>\n\n            <img src="{{rutaImagen}}PuntosEstrategicos/{{puntoE.Imagen}}">\n\n          </ion-thumbnail>\n\n          <h2 text-wrap><b>{{puntoE.Nombre}}</b></h2>\n\n          <p>{{ \'PuntosEstrategicos.Categoria.\' + puntoE.Categoria | translate}}</p>\n\n        </ion-item>\n\n      </ion-list>\n\n    </div>\n\n    <div *ngSwitchCase="\'misPuntos\'">\n\n      <ion-searchbar (ionInput)="getMisPuntos($event)" placeholder="{{textoBuscadorPunto}}">\n\n      </ion-searchbar>\n\n      <button *ngIf="esVisible()"></button>\n\n      <ion-list>\n\n        <ion-item *ngFor="let punto of listaMisPuntos">\n\n          <div (click)="mostrarInformacionPuntoFavorito(punto)">\n\n            <div item-left>\n\n              <h2><b>{{punto.nombre}}</b></h2>\n\n            </div>\n\n          </div>\n\n          <div item-end class="opcionesPuntos">\n\n            <ion-icon name="create" class="margen" color="primary" large (click)="editarMiPunto(punto)"></ion-icon>\n\n            <ion-icon name="trash" color="danger" large (click)="eliminarPunto(punto)"></ion-icon>\n\n          </div>\n\n        </ion-item>\n\n      </ion-list>\n\n    </div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\puntos-estrategicos\puntos-estrategicos.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */]])
 ], PuntoEstrategico);
 
 //# sourceMappingURL=puntos-estrategicos.js.map

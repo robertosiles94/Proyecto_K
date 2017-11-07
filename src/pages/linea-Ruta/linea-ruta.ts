@@ -27,11 +27,11 @@ export class LineaRuta {
   sentido: any;
   colorFondo: string;
 
-  constructor(public navCtrl: NavController, 
-    public servicio: KaypiServices, 
+  constructor(public navCtrl: NavController,
+    public servicio: KaypiServices,
     public navParams: NavParams,
-    public network: Network, 
-    public toastCtrl: ToastController, 
+    public network: Network,
+    public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public platform: Platform) {
     this.opcion = "";
@@ -113,20 +113,44 @@ export class LineaRuta {
     }
   }
 
+  animateCircle(line) {
+    var count = 0;
+    window.setInterval(function () {
+      count = (count + 1) % 200;
+      var icons = line.get('icons');
+      icons[0].offset = (count / 2) + '%';
+      line.set('icons', icons);
+    }, 20);
+  }
+
   removeAllRutas() {
     for (let i = 0; i < this.rutas.length; i++) {
       this.allRutas[i].setMap(null);
     }
   }
 
+  goToBusquedaPorCalles() {
+    this.navCtrl.push('BusquedaCallePage');
+  }
+
   cargarRuta(ruta) {
+    var lineSymbol = {
+      path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+      scale: 3,
+      strokeColor: '#488aff'
+    };
     this.flightPath = new google.maps.Polyline({
       path: ruta.Puntos,
+      icons: [{
+        icon: lineSymbol,
+        offset: '100%'
+      }],
       geodesic: true,
       strokeColor: this.cargarColor(ruta.Color),
       strokeOpacity: 1.0,
       strokeWeight: 2
     });
+    this.animateCircle(this.flightPath);
     this.flightPath.setMap(this.map);
     this.opcion = "";
   }

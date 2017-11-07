@@ -108,7 +108,8 @@
         "ContenidoAlertGps":"The GPS is not active, please verify and try again",
         "TituloAlertDistancia":"Short Distance",
         "ContenidoAlertDistancia":"The distance between the two points must be greater than 300 meters.",
-        "Cobertura": "Coverage"
+        "Cobertura": "Coverage",
+        "Trafico": "Traffic"
     },
     "PuntosEstrategicos": {
         "TituloPuntosEstrategicos": "Strategic points",
@@ -124,7 +125,8 @@
             "Centros Turísticos": "Turistic center",
             "Recreación y Cultura": "Recreation and Culture",
             "Centros de Abasto": "Supply center",
-            "Entidades Públicas": "Public entities"
+            "Entidades Públicas": "Public entities",
+            "Servicios Municipales": "Municipal Services"
         },
         
         "InformacionPuntoEstrategico": {
@@ -144,7 +146,7 @@
             "InputNombrePunto": "Point name",
             "ToastGuardado": "Point saved successfully",
             "ToastEliminado":"Point deleted successfully",
-            "TituloAlertElminar":"Delete",
+            "TituloAlertEliminar":"Delete",
             "ContenidoAlertEliminar":"¿Are you sure about deleting this point from your list?"
 
         }
@@ -228,7 +230,9 @@
         "VerUbicacionTrafico":"Notice the location",
         "ReiniciarBusqueda": "Start search",
         "Lineas":"Public transport",
-        "Ajustes": "Settings"
+        "Ajustes": "Settings",
+        "Reiniciar":"Restart search",
+        "Cerrar":"Close"
     },
     "Actualizacion":
     {
@@ -241,7 +245,26 @@
         "TituloAlertError":"Update Error",
         "MensajeAlertError":"It wasn't possible to complete the download, this can be due to a connection problem. Please try again later."
     },
+    "RadioMoviles":{
+        "Titulo":"Taxi",
+        "TituloAlert":"How would you like to make the search",
+        "Opcion1":"My location",
+        "Opcion2":"Select point",
+        "Opcion3":"View all",
+        "ToastSeleccionPunto":"Press the point in the map",
+        "ToastError":"There are no near taxi stations.",
+        "DireccionModal":"Address",
+        "Telefonos":"Telephone",
+        "Denuncias":"Excesive cost complaints"
+    },
     "TituloMensajeSalir":"Exit Kaypi",
-    "ContenidoMensajeSalir":"¿Are you sure you'd like to exit Kaypi?"
+    "ContenidoMensajeSalir":"¿Are you sure you'd like to exit Kaypi?",
+    "AccesosDirectos": {
+        "IrMiUbicacion": "Go to \"Go from my location\"",
+        "IrPorUnPunto" : "Go to \"Search by streets\""
+    },
+    "BusquedaPorCalle": {
+        "Titulo": "Search by streets"
+    }
 
 }

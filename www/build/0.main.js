@@ -1,15 +1,15 @@
 webpackJsonp([0],{
 
-/***/ 871:
+/***/ 875:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos_info__ = __webpack_require__(889);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__radio_movil__ = __webpack_require__(895);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(99);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PuntosEstrategicosInfoModule", function() { return PuntosEstrategicosInfoModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RadioMovilPageModule", function() { return RadioMovilPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,31 +20,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PuntosEstrategicosInfoModule = (function () {
-    function PuntosEstrategicosInfoModule() {
+var RadioMovilPageModule = (function () {
+    function RadioMovilPageModule() {
     }
-    return PuntosEstrategicosInfoModule;
+    return RadioMovilPageModule;
 }());
-PuntosEstrategicosInfoModule = __decorate([
+RadioMovilPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos_info__["a" /* PuntosEstrategicosInfo */],
+            __WEBPACK_IMPORTED_MODULE_2__radio_movil__["a" /* RadioMovilPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos_info__["a" /* PuntosEstrategicosInfo */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__radio_movil__["a" /* RadioMovilPage */]),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos_info__["a" /* PuntosEstrategicosInfo */]
+            __WEBPACK_IMPORTED_MODULE_2__radio_movil__["a" /* RadioMovilPage */]
         ]
     })
-], PuntosEstrategicosInfoModule);
+], RadioMovilPageModule);
 
-//# sourceMappingURL=puntos-estrategicos-info.module.js.map
+//# sourceMappingURL=radio-movil.module.js.map
 
 /***/ }),
 
-/***/ 875:
+/***/ 877:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2247,15 +2247,18 @@ Geocoder = __decorate([
 
 /***/ }),
 
-/***/ 889:
+/***/ 895:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__ = __webpack_require__(875);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PuntosEstrategicosInfo; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_kaypi_services__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__ = __webpack_require__(877);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_open_native_settings__ = __webpack_require__(500);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RadioMovilPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2265,87 +2268,428 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
-
-
-
-
-
-var PuntosEstrategicosInfo = (function () {
-    function PuntosEstrategicosInfo(navCtrl, platform, servicio, navParams, loadingCtrl) {
-        this.navCtrl = navCtrl;
-        this.platform = platform;
-        this.servicio = servicio;
-        this.navParams = navParams;
-        this.loadingCtrl = loadingCtrl;
-        this.colorFondo = this.servicio.modoApp;
-        this.rutaImagen = this.servicio.rutaImagenes;
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
-    PuntosEstrategicosInfo.prototype.cargarPuntoInfo = function () {
-        this.nombre = this.navParams.get('Nombre');
-        this.categoria = this.navParams.get('Categoria');
-        this.calles = this.navParams.get('Calles');
-        this.zona = this.navParams.get('ZonasCBBA');
-        this.descripcion = this.navParams.get('Descripcion');
-        this.imagen = this.navParams.get('Imagen');
-        this.punto = this.navParams.get('Punto');
+};
+
+
+
+
+
+
+
+
+
+
+var RadioMovilPage = (function () {
+    function RadioMovilPage(navCtrl, navParams, servicio, toastCtrl, geolocation, loadingCtrl, alertCtrl, diagnostic, openNativeSettings, modal) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.servicio = servicio;
+        this.toastCtrl = toastCtrl;
+        this.geolocation = geolocation;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.diagnostic = diagnostic;
+        this.openNativeSettings = openNativeSettings;
+        this.modal = modal;
+        this.isOrigen = false;
+        this.listaDistancias = [];
+        this.listaDistanciasFinal = [];
+        this.NroMoviles = 4;
+        this.colorFondo = this.servicio.modoApp;
+        this.marcadoresActuales = 0;
+    }
+    RadioMovilPage.prototype.ionViewDidLoad = function () {
+        this.initMap();
+        this.empezarBusqueda();
+        this.cargarRadioMoviles();
     };
-    PuntosEstrategicosInfo.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.servicio.paginas = 1;
-        console.log(this.servicio.paginas);
-        this.cargarPuntoInfo();
-        this.platform.registerBackButtonAction(function () {
-            _this.navCtrl.pop();
-        });
+    RadioMovilPage.prototype.removeAllPuntos = function () {
+        for (var i = 0; i < this.allMarcadores.length; i++) {
+            this.allMarcadores[i].setMap(null);
+        }
     };
-    PuntosEstrategicosInfo.prototype.ionViewDidLeave = function () {
-        console.log(this.servicio.paginas);
+    RadioMovilPage.prototype.cargarRadioMoviles = function () {
+        this.radioMoviles = this.servicio.obtenerRadioMoviles();
     };
-    PuntosEstrategicosInfo.prototype.cargarLineas = function () {
-        var _this = this;
-        var loader = this.loadingCtrl.create({
-            content: this.servicio.traducir("BuscandoLineas"),
-            duration: 2000
-        });
-        loader.present();
-        var myPosition = new __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* LatLng */](this.punto.lat, this.punto.lng);
-        var marker = new google.maps.Marker({
-            position: myPosition
-        });
-        this.servicio.obtenerLineasPorPunto({ position: marker.position });
-        setTimeout(function () {
-            var puntos = {
-                Inicio: {
-                    position: marker.position
+    RadioMovilPage.prototype.graficarParadasFinal = function () {
+        this.allMarcadores = [];
+        for (var i = 0; i < this.NroMoviles; i++) {
+            var latitude = this.listaDistanciasFinal[i].Lati;
+            var longitud = this.listaDistanciasFinal[i].Long;
+            var myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
+            var marker = new google.maps.Marker({
+                position: myPosition,
+                map: this.map,
+                icon: {
+                    labelOrigin: new google.maps.Point(25, -10),
+                    url: 'img/RadioMoviles/marcadorTaxiA.png',
+                    origin: new google.maps.Point(0, 0),
                 },
-                Fin: null
+                title: this.listaDistanciasFinal[i].Titulo,
+                label: {
+                    color: 'black',
+                    fontWeight: 'bold',
+                    fontsize: 14,
+                    text: this.listaDistanciasFinal[i].Titulo,
+                },
+            });
+            var objetoFinal = {
+                Marker: marker, Objeto: this.listaDistanciasFinal[i]
             };
-            _this.navCtrl.push('ListaLineas', puntos);
-        }, 2000);
+            this.addInfoWindowToMarker(objetoFinal);
+            this.allMarcadores.push(marker);
+            marker.setMap(this.map);
+            this.map.setCenter(myPosition);
+        }
+        this.map.setZoom(13);
+        this.mensajesToast.dismiss();
+        if (this.listaDistanciasFinal.length == 0) {
+            this.mensajesToast.dismiss();
+            this.mensajesToast = this.toastCtrl.create({
+                message: this.servicio.traducir("RadioMoviles.ToastError"),
+                position: 'bottom'
+            });
+            this.mensajesToast.present(this.mensajesToast);
+        }
     };
-    PuntosEstrategicosInfo.prototype.mostrarPunto = function () {
-        var objeto = {
-            Punto: this.navParams,
-            Opcion: "Especifico"
+    RadioMovilPage.prototype.graficarParadas = function () {
+        this.allMarcadores = [];
+        for (var i = 0; i < this.radioMoviles.length; i++) {
+            for (var j = 0; j < this.radioMoviles[i].Paradas.length; j++) {
+                var latitude = this.radioMoviles[i].Paradas[j].lat;
+                var longitud = this.radioMoviles[i].Paradas[j].lng;
+                var myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
+                var marker = new google.maps.Marker({
+                    position: myPosition,
+                    map: this.map,
+                    icon: {
+                        labelOrigin: new google.maps.Point(25, -10),
+                        url: 'img/RadioMoviles/marcadorTaxiA.png',
+                        origin: new google.maps.Point(0, 0),
+                    },
+                    label: {
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontsize: 14,
+                        text: this.radioMoviles[i].Nombre,
+                    },
+                });
+                var objetoFinal = {
+                    Marker: marker, Objeto: {
+                        Lati: latitude, Long: longitud, Titulo: this.radioMoviles[i].Nombre,
+                        Direccion: this.radioMoviles[i].Paradas[j].direccion, Logo: this.radioMoviles[i].Logo,
+                        Telefonos: this.radioMoviles[i].Telefonos
+                    }
+                };
+                this.addInfoWindowToMarker(objetoFinal);
+                this.allMarcadores.push(marker);
+                marker.setMap(this.map);
+                this.map.setCenter(myPosition);
+            }
+            this.map.setZoom(13);
+        }
+    };
+    RadioMovilPage.prototype.addInfoWindowToMarker = function (object) {
+        var _this = this;
+        object.Marker.addListener('click', function () {
+            var myModal = _this.modal.create('ModalRadioMovilPage', { data: object });
+            myModal.present();
+        });
+    };
+    RadioMovilPage.prototype.initMap = function () {
+        var _this = this;
+        var latLng = new google.maps.LatLng(-17.393835, -66.156946);
+        var mapOptions = {
+            center: latLng,
+            zoom: 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        this.navCtrl.push('PuntoEstrategicoMapa', objeto);
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+        google.maps.event.addListener(this.map, 'click', function (e) {
+            _this.clickMapa(e);
+        });
     };
-    return PuntosEstrategicosInfo;
+    RadioMovilPage.prototype.limpiarPuntos = function () {
+        if (this.origen !== undefined) {
+            this.origen.setMap(null);
+            this.origen = undefined;
+            this.marcadoresActuales--;
+            this.removeAllPuntos();
+            this.listaDistanciasFinal = [];
+        }
+        if (this.allMarcadores !== undefined) {
+            if (this.allMarcadores.length > 0) {
+                this.removeAllPuntos();
+            }
+        }
+    };
+    RadioMovilPage.prototype.empezarBusqueda = function () {
+        var _this = this;
+        this.limpiarPuntos();
+        var alert = this.alertCtrl.create();
+        alert.setTitle(this.servicio.traducir("RadioMoviles.TituloAlert"));
+        alert.addInput({
+            type: 'radio',
+            label: this.servicio.traducir("RadioMoviles.Opcion1"),
+            value: 'miUbicacion',
+            checked: true
+        });
+        alert.addInput({
+            type: 'radio',
+            label: this.servicio.traducir("RadioMoviles.Opcion2"),
+            value: 'eleccion',
+            checked: false
+        });
+        alert.addInput({
+            type: 'radio',
+            label: this.servicio.traducir("RadioMoviles.Opcion3"),
+            value: 'todos',
+            checked: false
+        });
+        alert.addButton({
+            text: this.servicio.traducir("Botones.Cancelar"),
+            handler: function (data) {
+            }
+        });
+        alert.addButton({
+            text: this.servicio.traducir("Botones.Aceptar"),
+            handler: function (data) {
+                _this.seleccionOrigen(data);
+            }
+        });
+        alert.present();
+    };
+    RadioMovilPage.prototype.seleccionOrigen = function (opcion) {
+        if (opcion == "miUbicacion") {
+            this.desdeUbicacion();
+        }
+        else if (opcion == "eleccion") {
+            this.seleccioneOrigen();
+            this.marcadoresActuales = 0;
+            this.isOrigen = true;
+        }
+        else if (opcion == "todos") {
+            this.graficarParadas();
+        }
+    };
+    RadioMovilPage.prototype.seleccioneOrigen = function () {
+        if (this.mensajesToast != null)
+            this.mensajesToast.dismiss();
+        this.mensajesToast = this.toastCtrl.create({
+            message: this.servicio.traducir("RadioMoviles.ToastSeleccionPunto"),
+            duration: 2000,
+            position: 'bottom'
+        });
+        this.mensajesToast.present(this.mensajesToast);
+    };
+    RadioMovilPage.prototype.getMyCurrentPosition = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var loader;
+            return __generator(this, function (_a) {
+                loader = this.loadingCtrl.create({
+                    content: this.servicio.traducir("ObteniendoUbicacion")
+                });
+                loader.present();
+                this.geolocation.getCurrentPosition()
+                    .then(function (position) {
+                    _this.cargarMiPosicion(position, loader);
+                });
+                setTimeout(function () {
+                    loader.dismiss();
+                }, 15000);
+                return [2 /*return*/];
+            });
+        });
+    };
+    RadioMovilPage.prototype.cargarMiPosicion = function (position, loader) {
+        return __awaiter(this, void 0, void 0, function () {
+            var latitude, longitud, myPosition, marker;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, position.coords.latitude];
+                    case 1:
+                        latitude = _a.sent();
+                        return [4 /*yield*/, position.coords.longitude];
+                    case 2:
+                        longitud = _a.sent();
+                        myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
+                        marker = new google.maps.Marker({
+                            position: myPosition,
+                            map: this.map,
+                            icon: 'img/RadioMoviles/miMarcador.png',
+                            title: 'Mi Posicion!'
+                        });
+                        this.marcadorYo = marker;
+                        this.miPosicion = myPosition;
+                        this.origen = this.marcadorYo;
+                        this.map.setCenter(myPosition);
+                        this.map.setZoom(14);
+                        loader.dismiss();
+                        this.verificarDistancias(marker);
+                        if (this.listaDistanciasFinal.length == 0) {
+                            this.mensajesToast.dismiss();
+                            this.mensajesToast = this.toastCtrl.create({
+                                message: this.servicio.traducir("RadioMoviles.ToastError"),
+                                position: 'bottom'
+                            });
+                            this.mensajesToast.present(this.mensajesToast);
+                        }
+                        else
+                            this.graficarParadasFinal();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    RadioMovilPage.prototype.desdeUbicacion = function () {
+        var _this = this;
+        this.checkLocation();
+        setTimeout(function () {
+            if (_this.isGPS) {
+                _this.getMyCurrentPosition();
+            }
+            else {
+                _this.marcadorYo = null;
+                _this.marcadoresActuales = 0;
+                _this.isOrigen = false;
+            }
+        }, 1000);
+    };
+    RadioMovilPage.prototype.checkLocation = function () {
+        var _this = this;
+        this.diagnostic.isLocationEnabled().then(function (isAvailable) {
+            if (!isAvailable) {
+                var alert_1 = _this.alertCtrl.create({
+                    title: _this.servicio.traducir("IrDesdeMiUbicacion.TituloAlertGps"),
+                    subTitle: _this.servicio.traducir("IrDesdeMiUbicacion.ContenidoAlertGps")
+                });
+                alert_1.addButton({
+                    text: _this.servicio.traducir("Botones.Aceptar")
+                });
+                alert_1.addButton({
+                    text: _this.servicio.traducir("Botones.Ajustes"),
+                    handler: function (data) {
+                        _this.openNativeSettings.open('location');
+                    }
+                });
+                alert_1.present();
+                _this.isGPS = false;
+            }
+            else {
+                _this.isGPS = true;
+            }
+        }).catch(function (e) {
+        });
+    };
+    RadioMovilPage.prototype.verificarDistancias = function (pI) {
+        this.listaDistanciasFinal = [];
+        var c = 0;
+        var x = 0;
+        for (var i = 0; i < this.radioMoviles.length; i++) {
+            for (var j = 0; j < this.radioMoviles[i].Paradas.length; j++) {
+                var latitude = this.radioMoviles[i].Paradas[j].lat;
+                var longitud = this.radioMoviles[i].Paradas[j].lng;
+                this.listaDistancias[c] = Math.sqrt(Math.pow(Math.abs(latitude) - Math.abs(pI.position.lat()), 2) + Math.pow(Math.abs(longitud) - Math.abs(pI.position.lng()), 2)) * 100000;
+                if (this.listaDistancias[c] < 6000) {
+                    this.listaDistanciasFinal = this.listaDistancias.sort(function (n1, n2) { return n1 - n2; });
+                    var myObject = {
+                        Lati: latitude, Long: longitud, Titulo: this.radioMoviles[i].Nombre,
+                        Direccion: this.radioMoviles[i].Paradas[j].direccion, Logo: this.radioMoviles[i].Logo,
+                        Telefonos: this.radioMoviles[i].Telefonos
+                    };
+                    this.listaDistanciasFinal[c] = myObject;
+                    c++;
+                }
+            }
+        }
+    };
+    RadioMovilPage.prototype.clickMapa = function (punto) {
+        if (this.isOrigen) {
+            if (this.marcadoresActuales < 1) {
+                var marker = new google.maps.Marker({
+                    position: punto.latLng,
+                    icon: 'img/BusquedaUbicacion/Marcadores/marcadorYo.png',
+                    map: this.map
+                });
+                this.origen = marker;
+                this.marcadoresActuales += 1;
+                this.map.panTo(punto.latLng);
+                this.verificarDistancias(marker);
+                if (this.listaDistanciasFinal.length == 0) {
+                    this.mensajesToast.dismiss();
+                    this.mensajesToast = this.toastCtrl.create({
+                        message: this.servicio.traducir("RadioMoviles.ToastError"),
+                        position: 'bottom'
+                    });
+                    this.mensajesToast.present(this.mensajesToast);
+                }
+                else
+                    this.graficarParadasFinal();
+            }
+        }
+    };
+    RadioMovilPage.prototype.openModal = function () {
+        var myModal = this.modal.create('ModalPage');
+        myModal.present();
+    };
+    return RadioMovilPage;
 }());
-PuntosEstrategicosInfo = __decorate([
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('map'),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */])
+], RadioMovilPage.prototype, "mapElement", void 0);
+RadioMovilPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'puntos-estrategicos-info',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\puntos-estrategicos-info\puntos-estrategicos-info.html"*/'<ion-header>\n\n    <ion-navbar color="{{colorFondo}}">\n\n        <ion-title>\n\n            {{\'PuntosEstrategicos.InformacionPuntoEstrategico.Titulo\' | translate}}\n\n        </ion-title>\n\n        <ion-buttons end>\n\n            <img src="img/univalle.png" class="imagenLogo"/>\n\n          </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-card class="fondo">\n\n        <ion-card-header style="text-align: center" text-wrap>\n\n            <b><h1 class="encabezado">{{nombre}}</h1></b>\n\n        </ion-card-header>\n\n         <img src="{{rutaImagen}}PuntosEstrategicos/{{imagen}}" class="imagen" imageViewer>\n\n        <ion-card-content style="text-align: center">\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.VerPuntoMapa\' | translate}}</h3>\n\n        <button ion-button round icon-left color="{{colorFondo}}" (click)="mostrarPunto()">\n\n                <ion-icon name="navigate"></ion-icon>\n\n                {{\'Botones.BotonVerPunto\' | translate}}\n\n            </button>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Categoria\' | translate}} </h3>\n\n            <p class="letra">{{\'PuntosEstrategicos.Categoria.\' + categoria | translate}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Direccion\' | translate}}</h3>\n\n            <p *ngFor="let calle of calles" class="letra">{{calle}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Lineas\' | translate}}</h3>\n\n            <button ion-button round icon-left color="{{colorFondo}}" (click)="cargarLineas()">\n\n                <ion-icon name="navigate"></ion-icon>\n\n                {{\'Botones.Lineas\' | translate}}\n\n            </button>\n\n            <br>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Zona\' | translate}}:</h3>\n\n            <p  class="letra">{{zona}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.InformacionComplementaria\' | translate}}:</h3>\n\n            <p  class="letra">{{descripcion}}</p>\n\n            <br>\n\n        </ion-card-content>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\puntos-estrategicos-info\puntos-estrategicos-info.html"*/
+        selector: 'page-radio-movil',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\radio-movil\radio-movil.html"*/'<!--\n\n  Generated template for the RadioMovilPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="{{colorFondo}}">\n\n    <button ion-button menuToggle icon-only>\n\n      <ion-icon name=\'menu\'></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      {{\'RadioMoviles.Titulo\' | translate}}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <img src="img/univalle.png" class="imagenLogo" />\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div>\n\n    <ion-item class="fondoOpciones">\n\n      <button round [disabled]="isCovertura" block class="botonEmpezar jellyAnimation" ion-button color="secondary" item-start (click)="empezarBusqueda()"\n\n        style="text-transform: none;">\n\n        {{\'Botones.Reiniciar\' | translate}}\n\n      </button>\n\n    </ion-item>\n\n  </div>\n\n  <div #map id="map" name="map">\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\radio-movil\radio-movil.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */]])
-], PuntosEstrategicosInfo);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_kaypi_services__["a" /* KaypiServices */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__["a" /* Diagnostic */],
+        __WEBPACK_IMPORTED_MODULE_6__ionic_native_open_native_settings__["a" /* OpenNativeSettings */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ModalController */]])
+], RadioMovilPage);
 
-//# sourceMappingURL=puntos-estrategicos-info.js.map
+//# sourceMappingURL=radio-movil.js.map
 
 /***/ })
 

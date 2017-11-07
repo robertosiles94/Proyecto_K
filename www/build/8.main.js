@@ -1,15 +1,15 @@
 webpackJsonp([8],{
 
-/***/ 866:
+/***/ 870:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu_principal__ = __webpack_require__(884);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal__ = __webpack_require__(890);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(99);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuPrincipalModule", function() { return MenuPrincipalModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalRadioMovilPageModule", function() { return ModalRadioMovilPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,38 +20,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MenuPrincipalModule = (function () {
-    function MenuPrincipalModule() {
+var ModalRadioMovilPageModule = (function () {
+    function ModalRadioMovilPageModule() {
     }
-    return MenuPrincipalModule;
+    return ModalRadioMovilPageModule;
 }());
-MenuPrincipalModule = __decorate([
+ModalRadioMovilPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__menu_principal__["a" /* MenuPrincipal */],
+            __WEBPACK_IMPORTED_MODULE_2__modal__["a" /* ModalRadioMovilPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__menu_principal__["a" /* MenuPrincipal */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__modal__["a" /* ModalRadioMovilPage */]),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__menu_principal__["a" /* MenuPrincipal */]
+            __WEBPACK_IMPORTED_MODULE_2__modal__["a" /* ModalRadioMovilPage */]
         ]
     })
-], MenuPrincipalModule);
+], ModalRadioMovilPageModule);
 
-//# sourceMappingURL=menu-principal.module.js.map
+//# sourceMappingURL=modal.module.js.map
 
 /***/ }),
 
-/***/ 884:
+/***/ 890:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__ = __webpack_require__(187);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuPrincipal; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_clipboard__ = __webpack_require__(498);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalRadioMovilPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -65,52 +66,69 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MenuPrincipal = (function () {
-    function MenuPrincipal(navCtrl, platform, db) {
+
+
+/**
+ * Generated class for the ModalPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var ModalRadioMovilPage = (function () {
+    function ModalRadioMovilPage(navCtrl, navParams, servicio, toastCtrl, platform, clipboard, view) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.servicio = servicio;
+        this.toastCtrl = toastCtrl;
         this.platform = platform;
-        this.db = db;
-        this.imagenesDia = [
-            'dia0.jpg',
-            'dia1.jpg',
-            'dia3.jpg',
-            'noche0.jpg',
-            'noche1.jpg'
-        ];
-        this.imagenesNoche = [];
-        this.platform.ready().then(function () {
-            //this.getEstadoDia();
-        });
-        this.colorFondo = this.db.modoApp;
+        this.clipboard = clipboard;
+        this.view = view;
+        this.telefonoOficial = '800101010';
+        var data = this.navParams.get('data');
+        this.rutaImagen = this.servicio.rutaImagenes;
+        this.colorFondo = this.servicio.modoApp;
+        this.titulo = data.Objeto.Titulo;
+        this.logo = data.Objeto.Logo;
+        this.direccion = data.Objeto.Direccion;
+        this.telefonos = data.Objeto.Telefonos;
     }
-    MenuPrincipal.prototype.ionViewDidLoad = function () {
-        this.db.paginas = 0;
+    ModalRadioMovilPage.prototype.copiarTelefono = function (telf) {
+        this.clipboard.copy(telf);
+        var toast = this.toastCtrl.create({
+            message: this.servicio.traducir("BusquedaDeLineas.InformacionLineas.Telefono"),
+            duration: 1000,
+            position: 'middle'
+        });
+        toast.present(toast);
+        console.log('Telefono copiado' + telf);
     };
-    MenuPrincipal.prototype.getEstadoDia = function () {
-        var d = new Date();
-        var n = d.getHours();
-        if (n < 18) {
-            this.tiempo = "Dia";
-            this.imagenesDeFondo = this.imagenesDia.sort(function () { return Math.random() - 0.5; });
-            ;
-        }
-        else {
-            this.tiempo = "Noche";
-            this.imagenesDeFondo = this.imagenesNoche.sort(function () { return Math.random() - 0.5; });
-            ;
-        }
+    ModalRadioMovilPage.prototype.closeModal = function () {
+        this.view.dismiss();
     };
-    return MenuPrincipal;
+    ModalRadioMovilPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.platform.registerBackButtonAction(function () {
+            _this.navCtrl.pop();
+        });
+    };
+    return ModalRadioMovilPage;
 }());
-MenuPrincipal = __decorate([
+ModalRadioMovilPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-menu-principal',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\menu-principal\menu-principal.html"*/'\n\n<ion-header>\n\n  <ion-navbar color="{{colorFondo}}">\n\n    <button ion-button menuToggle icon-only>\n\n      <ion-icon name=\'menu\'></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      {{\'Menu.Inicio\' | translate}}\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <img src="img/univalle.png" class="imagenLogo"/>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-slides loop="true" pager>\n\n    <ion-slide *ngFor="let imga of imagenesDia">\n\n      <img src="img/MenuPrincipal/{{imga}}" class="fondoImg">\n\n    </ion-slide>\n\n  </ion-slides> \n\n</ion-content>\n\n'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\menu-principal\menu-principal.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */]])
-], MenuPrincipal);
+        selector: 'page-modal',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\modalRadioMovil\modal.html"*/'<!--\n  Generated template for the ModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="{{colorFondo}}">\n    <ion-title>\n      {{\'RadioMoviles.Titulo\' | translate}}\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="closeModal()">{{\'Botones.Cerrar\' | translate}}</button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="fondo" padding>\n  <ion-card-header style="text-align: center">\n    <b>\n      <h1 class="encabezado">{{titulo}}</h1>\n    </b>\n  </ion-card-header>\n  <img src="{{rutaImagen}}RadioMoviles/{{logo}}" class="imagen" imageViewer>\n  <ion-card-content style="text-align: center">\n    <h3 class="titulo">{{\'RadioMoviles.DireccionModal\' | translate}}</h3>\n    <p class="letra">{{direccion}}</p>\n    <h3 class="titulo">{{\'RadioMoviles.Telefonos\' | translate}}</h3>\n    <p *ngFor="let telf of telefonos">\n      <button ion-button clear icon-left (click)="copiarTelefono(telf)">\n        {{telf}}\n        <ion-icon name="copy" class="iconoTelf"></ion-icon>\n      </button>\n    </p>\n    <p class="titulo">\n      {{\'RadioMoviles.Denuncias\' | translate}}\n      <button ion-button clear icon-left (click)="copiarTelefono(telefonoOficial)">\n        800-10-1010\n        <ion-icon name="copy" class="iconoTelf"></ion-icon>\n      </button>\n    </p>\n  </ion-card-content>\n</ion-content>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\modalRadioMovil\modal.html"*/,
+    })
+    //ModalTaxis
+    ,
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */],
+        __WEBPACK_IMPORTED_MODULE_3__ionic_native_clipboard__["a" /* Clipboard */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
+], ModalRadioMovilPage);
 
-//# sourceMappingURL=menu-principal.js.map
+//# sourceMappingURL=modal.js.map
 
 /***/ })
 

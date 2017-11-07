@@ -1,0 +1,45 @@
+{
+    "RadioMoviles": [
+        {
+            "Nombre": "Temporal",
+            "Paradas": [
+                {
+                    "direccion": "America",
+                    "lat": -17.373901,
+                    "lng": -66.139998
+                },
+                {
+                    "direccion": "Av. Uyuni",
+                    "lat": -17.378325,
+                    "lng": -66.151928
+                }
+            ],
+            "Telefonos": [
+                "4576296",
+                "4546464"
+            ],
+            "Logo": "0c.jpg"
+        },
+        {
+            "Nombre": "Alba",
+            "Paradas": [
+                {
+                    "direccion": "Simon Lopez",
+                    "lat": -17.358505,
+                    "lng": -66.182679
+                },
+                {
+                    "direccion": "Av. Beijing",
+                    "lat": -17.365189,
+                    "lng": -66.176183
+                }
+            ],
+            "Telefonos": [
+                "4288888",
+                "4288887",
+                "4288889"
+            ],
+            "Logo": "0c.jpg"
+        }
+    ]
+}

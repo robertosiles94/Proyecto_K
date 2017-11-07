@@ -107,7 +107,8 @@
         "ContenidoAlertGps": "El GPS no se encuentra activado, por favor verifique e intente de nuevo",
         "TituloAlertDistancia": "Distancia Corta",
         "ContenidoAlertDistancia": "La distancia de los dos puntos debe ser mayor a 300 metros.",
-        "Cobertura": "Cobertura"
+        "Cobertura": "Cobertura",
+        "Trafico": "Tráfico"
     },
     "PuntosEstrategicos": {
         "TituloPuntosEstrategicos": "Puntos Estratégicos",
@@ -123,7 +124,8 @@
             "Centros Turísticos": "Centros Túristicos",
             "Recreación y Cultura": "Recreación y Cultura",
             "Centros de Abasto": "Centros de Abasto",
-            "Entidades Públicas": "Entidades Públicas"
+            "Entidades Públicas": "Entidades Públicas",
+            "Servicios Municipales": "Servicios Municipales"
         },
         "InformacionPuntoEstrategico": {
             "Titulo": "Punto Estratégico",
@@ -142,7 +144,7 @@
             "InputNombrePunto": "Nombre Punto",
             "ToastGuardado": "Punto guardado exitosamente",
             "ToastEliminado": "Punto eliminado exitosamente",
-            "TituloAlertElminar": "Eliminar",
+            "TituloAlertEliminar": "Eliminar",
             "ContenidoAlertEliminar": "¿Está segur@ de eliminar este punto de su lista?"
         }
     },
@@ -224,7 +226,9 @@
         "VerUbicacionTrafico": "Ver ubicación",
         "ReiniciarBusqueda": "Empezar Búsqueda",
         "Lineas": "Linea",
-        "Ajustes": "Ajustes"
+        "Ajustes": "Ajustes",
+        "Reiniciar":"Reiniciar búsqueda",
+        "Cerrar":"Cerrar"
     },
     "Actualizacion": {
         "TituloMensaje": "Actualización de Datos",
@@ -236,6 +240,25 @@
         "TituloAlertError": "Error de actualización",
         "MensajeAlertError": "No fue posible completar la descarga de la actualización, esto puede deberse a un problema de conexión a Internet. Por favor intente más tarde."
     },
+    "RadioMoviles":{
+        "Titulo":"Radio Móviles",
+        "TituloAlert":"Seleccione como desea hacer la búsqueda",
+        "Opcion1":"Mi ubicación",
+        "Opcion2":"Seleccionar punto",
+        "Opcion3":"Ver todos",
+        "ToastSeleccionPunto":"Presione el punto en el mapa",
+        "ToastError":"No existen paradas de radio móviles cerca.",
+        "DireccionModal":"Dirección",
+        "Telefonos":"Teléfonos",
+        "Denuncias":"Denuncias de cobros excesivos"
+    },
     "TituloMensajeSalir": "Salir de Kaypi",
-    "ContenidoMensajeSalir": "¿Está realmente seguro que desea salir de Kaypi?"
+    "ContenidoMensajeSalir": "¿Está realmente seguro que desea salir de Kaypi?",
+    "AccesosDirectos": {
+        "IrMiUbicacion": "Ir a \"Ir desde mi ubicación\"",
+         "IrPorUnPunto" : "Ir a \"Búsqueda por calles\""
+     },
+     "BusquedaPorCalle": {
+         "Titulo": "Búsqueda por calles"
+     }
 }

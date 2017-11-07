@@ -1,15 +1,15 @@
 webpackJsonp([1],{
 
-/***/ 870:
+/***/ 873:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__punto_estrategico_mapa__ = __webpack_require__(888);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos_info__ = __webpack_require__(893);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(99);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PuntoEstrategicoMapaModule", function() { return PuntoEstrategicoMapaModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PuntosEstrategicosInfoModule", function() { return PuntosEstrategicosInfoModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,31 +20,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PuntoEstrategicoMapaModule = (function () {
-    function PuntoEstrategicoMapaModule() {
+var PuntosEstrategicosInfoModule = (function () {
+    function PuntosEstrategicosInfoModule() {
     }
-    return PuntoEstrategicoMapaModule;
+    return PuntosEstrategicosInfoModule;
 }());
-PuntoEstrategicoMapaModule = __decorate([
+PuntosEstrategicosInfoModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__punto_estrategico_mapa__["a" /* PuntoEstrategicoMapa */],
+            __WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos_info__["a" /* PuntosEstrategicosInfo */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__punto_estrategico_mapa__["a" /* PuntoEstrategicoMapa */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos_info__["a" /* PuntosEstrategicosInfo */]),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__punto_estrategico_mapa__["a" /* PuntoEstrategicoMapa */]
+            __WEBPACK_IMPORTED_MODULE_2__puntos_estrategicos_info__["a" /* PuntosEstrategicosInfo */]
         ]
     })
-], PuntoEstrategicoMapaModule);
+], PuntosEstrategicosInfoModule);
 
-//# sourceMappingURL=punto-estrategico-mapa.module.js.map
+//# sourceMappingURL=puntos-estrategicos-info.module.js.map
 
 /***/ }),
 
-/***/ 875:
+/***/ 877:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2247,17 +2247,15 @@ Geocoder = __decorate([
 
 /***/ }),
 
-/***/ 888:
+/***/ 893:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(497);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__ = __webpack_require__(496);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__ = __webpack_require__(875);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PuntoEstrategicoMapa; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__ = __webpack_require__(877);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PuntosEstrategicosInfo; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2273,300 +2271,81 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-var PuntoEstrategicoMapa = (function () {
-    function PuntoEstrategicoMapa(navCtrl, diagnostic, navParams, servicio, geolocation, loadingCtrl, alertCtrl) {
+var PuntosEstrategicosInfo = (function () {
+    function PuntosEstrategicosInfo(navCtrl, platform, servicio, navParams, loadingCtrl) {
         this.navCtrl = navCtrl;
-        this.diagnostic = diagnostic;
-        this.navParams = navParams;
+        this.platform = platform;
         this.servicio = servicio;
-        this.geolocation = geolocation;
+        this.navParams = navParams;
         this.loadingCtrl = loadingCtrl;
-        this.alertCtrl = alertCtrl;
-        this.isGPS = false;
-        this.origen = false;
-        this.cargarFab();
         this.colorFondo = this.servicio.modoApp;
+        this.rutaImagen = this.servicio.rutaImagenes;
     }
-    PuntoEstrategicoMapa.prototype.cargarFab = function () {
-        this.opcion = this.navParams.get('Opcion');
-        if (this.opcion == "Todos") {
-            this.fabTodos = true;
-            this.fabPunto = false;
-        }
-        else {
-            this.fabTodos = false;
-            this.fabPunto = true;
-        }
+    PuntosEstrategicosInfo.prototype.cargarPuntoInfo = function () {
+        this.nombre = this.navParams.get('Nombre');
+        this.categoria = this.navParams.get('Categoria');
+        this.calles = this.navParams.get('Calles');
+        this.zona = this.navParams.get('ZonasCBBA');
+        this.descripcion = this.navParams.get('Descripcion');
+        this.imagen = this.navParams.get('Imagen');
+        this.punto = this.navParams.get('Punto');
     };
-    PuntoEstrategicoMapa.prototype.cargarCategorias = function () {
-        this.categorias = [
-            { Nombre: "Todos", Valor: "Todos", Imagen: "Todos.png" },
-        ];
-        for (var i = 0; i < this.listaPuntos.length; i++) {
-            if (!this.existeCategoria(this.categorias, this.listaPuntos[i].Categoria)) {
-                this.categorias.push({ Nombre: this.listaPuntos[i].Categoria, Valor: this.listaPuntos[i].Categoria, Imagen: this.listaPuntos[i].Marcador });
-            }
-        }
-    };
-    PuntoEstrategicoMapa.prototype.existeCategoria = function (lista, categoria) {
-        for (var i = 0; i < lista.length; i++) {
-            if (lista[i].Nombre == categoria) {
-                return true;
-            }
-        }
-        return false;
-    };
-    PuntoEstrategicoMapa.prototype.addInfoWindowToMarker = function (object) {
+    PuntosEstrategicosInfo.prototype.ionViewDidLoad = function () {
         var _this = this;
-        var infoWindowContent = '<div id="content"><h1 id="firstHeading" class="firstHeading">' + object.Marker.title + '</h1><br>' + object.Categoria + '<h2></h2></div>';
-        var infoWindow = new google.maps.InfoWindow({
-            content: infoWindowContent
-        });
-        object.Marker.addListener('click', function () {
-            infoWindow.open(_this.map, object.Marker);
-        });
-    };
-    PuntoEstrategicoMapa.prototype.cargarPosicionPuntosEstrategicos = function () {
-        this.allMarcadores = [];
-        for (var i = 0; i < this.listaPuntos.length; i++) {
-            var latitude = this.listaPuntos[i].Punto.lat;
-            var longitud = this.listaPuntos[i].Punto.lng;
-            var myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
-            var marker = new google.maps.Marker({
-                position: myPosition,
-                map: this.map,
-                icon: 'img/PuntosEstrategicos/Marcadores/' + this.listaPuntos[i].Marcador,
-                title: this.listaPuntos[i].Nombre
-            });
-            var object = { Marker: marker, Categoria: this.listaPuntos[i].Categoria };
-            this.addInfoWindowToMarker(object);
-            this.allMarcadores.push(marker);
-            marker.setMap(this.map);
-            this.map.setCenter(myPosition);
-        }
-        this.map.setZoom(13);
-    };
-    PuntoEstrategicoMapa.prototype.cargarPosicionPuntosEstrategicosCategoria = function (categorias) {
-        this.allMarcadores = [];
-        if (categorias == "Todos") {
-            this.cargarPosicionPuntosEstrategicos();
-        }
-        else {
-            for (var i = 0; i < this.listaPuntos.length; i++) {
-                if (this.listaPuntos[i].Categoria == categorias) {
-                    var latitude = this.listaPuntos[i].Punto.lat;
-                    var longitud = this.listaPuntos[i].Punto.lng;
-                    var myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
-                    var marker = new google.maps.Marker({
-                        position: myPosition,
-                        map: this.map,
-                        icon: 'img/PuntosEstrategicos/Marcadores/' + this.listaPuntos[i].Marcador,
-                        title: this.listaPuntos[i].Nombre
-                    });
-                    var object = { Marker: marker, Categoria: this.listaPuntos[i].Categoria };
-                    this.addInfoWindowToMarker(object);
-                    this.allMarcadores.push(marker);
-                    marker.setMap(this.map);
-                    this.map.setCenter(myPosition);
-                }
-            }
-            this.map.setZoom(13);
-        }
-    };
-    PuntoEstrategicoMapa.prototype.removeAllPuntos = function () {
-        for (var i = 0; i < this.allMarcadores.length; i++) {
-            this.allMarcadores[i].setMap(null);
-        }
-    };
-    PuntoEstrategicoMapa.prototype.removePuntos = function (categorias) {
-        if (categorias == "Todos") {
-            this.removeAllPuntos();
-            this.cargarPosicionPuntosEstrategicos();
-        }
-        else {
-            this.removeAllPuntos();
-            this.cargarPosicionPuntosEstrategicosCategoria(categorias);
-        }
-    };
-    PuntoEstrategicoMapa.prototype.cargarPuntos = function () {
-        this.listaPuntos = this.servicio.obtenerPuntos().PuntosEstrategicos;
-    };
-    PuntoEstrategicoMapa.prototype.cargarPuntoEstrategico = function (punto) {
-        this.nombrePuntoEstrategico = punto.data.Nombre;
-        this.ubicacionPuntoEstrategico = punto.data.Punto;
-        this.iconos = punto.data.Marcador;
-    };
-    PuntoEstrategicoMapa.prototype.ionViewDidLoad = function () {
-        this.initMap();
+        this.servicio.paginas = 1;
         console.log(this.servicio.paginas);
-        this.allMarcadores = [];
-        this.opcion = this.navParams.get('Opcion');
-        this.cargarPuntos();
-        if (this.opcion == "Especifico") {
-            this.servicio.paginas = 2;
-            if (this.allMarcadores.length > 0) {
-                this.removeAllPuntos();
-            }
-            var punto = this.navParams.get('Punto');
-            this.cargarPuntoEstrategico(punto);
-            this.cargarPosicionPuntoEstrategico();
-        }
-        else if (this.opcion = "Todos") {
-            this.servicio.paginas = 1;
-            this.cargarCategorias();
-            this.cargarPosicionPuntosEstrategicos();
-        }
+        this.cargarPuntoInfo();
+        this.platform.registerBackButtonAction(function () {
+            _this.navCtrl.pop();
+        });
     };
-    PuntoEstrategicoMapa.prototype.ionViewDidLeave = function () {
+    PuntosEstrategicosInfo.prototype.ionViewDidLeave = function () {
         console.log(this.servicio.paginas);
     };
-    PuntoEstrategicoMapa.prototype.cargarPosicionPuntoEstrategico = function () {
-        var latitude = this.ubicacionPuntoEstrategico.lat;
-        var longitud = this.ubicacionPuntoEstrategico.lng;
-        var myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
+    PuntosEstrategicosInfo.prototype.cargarLineas = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            content: this.servicio.traducir("BuscandoLineas"),
+            duration: 2000
+        });
+        loader.present();
+        var myPosition = new __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* LatLng */](this.punto.lat, this.punto.lng);
         var marker = new google.maps.Marker({
-            position: myPosition,
-            map: this.map,
-            icon: 'img/PuntosEstrategicos/Marcadores/' + this.iconos,
-            title: this.nombrePuntoEstrategico
+            position: myPosition
         });
-        this.puntoEstrategico = marker;
-        this.map.setCenter(myPosition);
-        this.map.setZoom(15);
-    };
-    PuntoEstrategicoMapa.prototype.initMap = function () {
-        var _this = this;
-        var latLng = new google.maps.LatLng(-17.393835, -66.156946);
-        var mapOptions = {
-            center: latLng,
-            zoom: 13,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-        google.maps.event.addListener(this.map, 'click', function (e) {
-            if (_this.origen) {
-                var marker = new google.maps.Marker({
-                    position: e.latLng,
-                    map: _this.map
-                });
-                var loader2 = _this.loadingCtrl.create({
-                    content: _this.servicio.traducir("BuscandoLineas"),
-                    duration: 3000
-                });
-                loader2.present();
-                _this.userPosicion = marker;
-                _this.servicio.obtenerLineasPorSelecion(marker, _this.puntoEstrategico);
-                setTimeout(function () {
-                    _this.mostrarLineas();
-                    _this.origen = false;
-                    _this.userPosicion.setMap(null);
-                }, 2000);
-            }
-        });
-    };
-    PuntoEstrategicoMapa.prototype.getMyCurrentPosition = function () {
-        var _this = this;
-        this.checkLocation();
+        this.servicio.obtenerLineasPorPunto({ position: marker.position });
         setTimeout(function () {
-            if (_this.isGPS) {
-                var loader_1 = _this.loadingCtrl.create({
-                    content: _this.servicio.traducir("ObteniendoUbicacion")
-                });
-                loader_1.present();
-                _this.geolocation.getCurrentPosition()
-                    .then(function (position) {
-                    _this.cargarMiPosicion(position, loader_1);
-                    var loader2 = _this.loadingCtrl.create({
-                        content: _this.servicio.traducir("BuscandoLineas"),
-                        duration: 3000
-                    });
-                    loader2.present();
-                    _this.servicio.obtenerLineasPorSelecion(_this.userPosicion, _this.puntoEstrategico);
-                    setTimeout(function () {
-                        _this.mostrarLineas();
-                    }, 2000);
-                });
-                setTimeout(function () {
-                    loader_1.dismiss();
-                }, 15000);
-            }
-        }, 1000);
+            var puntos = {
+                Inicio: {
+                    position: marker.position
+                },
+                Fin: null
+            };
+            _this.navCtrl.push('ListaLineas', puntos);
+        }, 2000);
     };
-    PuntoEstrategicoMapa.prototype.checkLocation = function () {
-        var _this = this;
-        this.diagnostic.isLocationEnabled().then(function (isAvailable) {
-            if (!isAvailable) {
-                var alert_1 = _this.alertCtrl.create({
-                    title: _this.servicio.traducir("IrDesdeMiUbicacion.TituloAlertGps"),
-                    subTitle: _this.servicio.traducir("IrDesdeMiUbicacion.ContenidoAlertGps"),
-                    buttons: [_this.servicio.traducir("Botones.Aceptar")]
-                });
-                alert_1.present();
-                _this.isGPS = false;
-            }
-            else {
-                _this.isGPS = true;
-            }
-        }).catch(function (e) {
-        });
-    };
-    PuntoEstrategicoMapa.prototype.cargarMiPosicion = function (position, loader) {
-        var latitude = position.coords.latitude;
-        var longitud = position.coords.longitude;
-        var myPosition = new __WEBPACK_IMPORTED_MODULE_5__ionic_native_google_maps__["a" /* LatLng */](latitude, longitud);
-        var marker = new google.maps.Marker({
-            position: myPosition,
-            map: this.map,
-            icon: 'img/BusquedaUbicacion/Marcadores/marcadorYo.png',
-            title: 'Mi Posicion!'
-        });
-        this.userPosicion = marker;
-        loader.dismiss();
-    };
-    PuntoEstrategicoMapa.prototype.mostrarLineas = function () {
-        var puntos = {
-            Inicio: this.userPosicion,
-            Fin: this.puntoEstrategico
+    PuntosEstrategicosInfo.prototype.mostrarPunto = function () {
+        var objeto = {
+            Punto: this.navParams,
+            Opcion: "Especifico"
         };
-        this.navCtrl.push('ListaLineas', puntos);
+        this.navCtrl.push('PuntoEstrategicoMapa', objeto);
     };
-    PuntoEstrategicoMapa.prototype.seleccionOrigen = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create({
-            title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
-            subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen")
-        });
-        alert.addButton({
-            text: this.servicio.traducir("Botones.Cancelar"),
-            handler: function (data) {
-                _this.origen = false;
-            }
-        });
-        alert.addButton({
-            text: this.servicio.traducir("Botones.Aceptar"),
-            handler: function (data) {
-                _this.origen = true;
-            }
-        });
-        alert.present();
-    };
-    return PuntoEstrategicoMapa;
+    return PuntosEstrategicosInfo;
 }());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('map'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */])
-], PuntoEstrategicoMapa.prototype, "mapElement", void 0);
-PuntoEstrategicoMapa = __decorate([
+PuntosEstrategicosInfo = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'punto-estrategico-mapa',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\punto-estrategico-mapa\punto-estrategico-mapa.html"*/'<ion-header>\n\n  <ion-navbar color="{{colorFondo}}">\n\n    <ion-title>\n\n      {{\'PuntosEstrategicos.TituloPuntosEstrategicos\' | translate}} \n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <img src="img/univalle.png" class="imagenLogo"/>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-fab left bottom *ngIf="fabPunto">\n\n    <button ion-fab color="{{colorFondo}}" class="jellyAnimation"><ion-icon  name="arrow-dropup"></ion-icon></button>\n\n    <ion-fab-list side="top" color="primary" class="itemsFab"  >\n\n      <button class="margenBoton botonesFab" color="light" ion-button round item-left (click)="getMyCurrentPosition()">\n\n      <ion-label class="colorLetras">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Fab\' | translate}}</ion-label>\n\n      </button>\n\n      <button class="margenBoton botonesFab" color="light" ion-button round item-left (click)="seleccionOrigen()">\n\n        <ion-label class="colorLetras">{{\'IrDesdeMiUbicacion.Origen.TituloAlertOrigen\' | translate}}</ion-label>\n\n      </button>\n\n    </ion-fab-list>\n\n  </ion-fab>\n\n   <ion-fab left bottom *ngIf="fabTodos">\n\n    <button ion-fab color="{{colorFondo}}" class="jellyAnimation"><ion-icon name="arrow-dropup"></ion-icon></button>\n\n    <ion-fab-list side="top" color="primary" class="itemsFab"  >\n\n      <button class="margenBoton botonesFab" color="light" ion-button round item-left *ngFor="let c of categorias" [value]="c.Nombre" (click)="removePuntos(c.Nombre)">\n\n      <img src="img/PuntosEstrategicos/Marcadores/{{c.Imagen}}" alt="" class="divCuadrado">\n\n        <ion-label class="colorLetras">{{c.Nombre}}</ion-label>\n\n      </button>\n\n    </ion-fab-list>\n\n  </ion-fab>\n\n</ion-content>\n\n<ion-content>\n\n  <div #map id="map" name="map" >\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\punto-estrategico-mapa\punto-estrategico-mapa.html"*/
+        selector: 'puntos-estrategicos-info',template:/*ion-inline-start:"E:\Mis proyectos\Kaypi\src\pages\puntos-estrategicos-info\puntos-estrategicos-info.html"*/'<ion-header>\n\n    <ion-navbar color="{{colorFondo}}">\n\n        <ion-title>\n\n            {{\'PuntosEstrategicos.InformacionPuntoEstrategico.Titulo\' | translate}}\n\n        </ion-title>\n\n        <ion-buttons end>\n\n            <img src="img/univalle.png" class="imagenLogo"/>\n\n          </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-card class="fondo">\n\n        <ion-card-header style="text-align: center" text-wrap>\n\n            <b><h1 class="encabezado">{{nombre}}</h1></b>\n\n        </ion-card-header>\n\n         <img src="{{rutaImagen}}PuntosEstrategicos/{{imagen}}" class="imagen" imageViewer>\n\n        <ion-card-content style="text-align: center">\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.VerPuntoMapa\' | translate}}</h3>\n\n        <button ion-button round icon-left color="{{colorFondo}}" (click)="mostrarPunto()">\n\n                <ion-icon name="navigate"></ion-icon>\n\n                {{\'Botones.BotonVerPunto\' | translate}}\n\n            </button>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Categoria\' | translate}} </h3>\n\n            <p class="letra">{{\'PuntosEstrategicos.Categoria.\' + categoria | translate}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Direccion\' | translate}}</h3>\n\n            <p *ngFor="let calle of calles" class="letra">{{calle}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Lineas\' | translate}}</h3>\n\n            <button ion-button round icon-left color="{{colorFondo}}" (click)="cargarLineas()">\n\n                <ion-icon name="navigate"></ion-icon>\n\n                {{\'Botones.Lineas\' | translate}}\n\n            </button>\n\n            <br>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.Zona\' | translate}}:</h3>\n\n            <p  class="letra">{{zona}}</p>\n\n            <br>\n\n            <h3 class="titulo">{{\'PuntosEstrategicos.InformacionPuntoEstrategico.InformacionComplementaria\' | translate}}:</h3>\n\n            <p  class="letra">{{descripcion}}</p>\n\n            <br>\n\n        </ion-card-content>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"E:\Mis proyectos\Kaypi\src\pages\puntos-estrategicos-info\puntos-estrategicos-info.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_diagnostic__["a" /* Diagnostic */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* AlertController */]])
-], PuntoEstrategicoMapa);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_kaypi_services__["a" /* KaypiServices */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]])
+], PuntosEstrategicosInfo);
 
-//# sourceMappingURL=punto-estrategico-mapa.js.map
+//# sourceMappingURL=puntos-estrategicos-info.js.map
 
 /***/ })
 

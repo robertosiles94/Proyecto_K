@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Platform } from 'ionic-angular';
 import { SQLiteObject } from '@ionic-native/sqlite';
 import { SQLite } from '@ionic-native/sqlite';
@@ -41,6 +41,7 @@ export class KaypiServices {
   public conexionInternet: boolean = true;
   rutaJson: any;
   link: any = 'http://www.kaypi.hol.es/Kaypi/';
+  radioMoviles: any;
   public misPuntos: any[] = [];
   public modoApp: string = "primary";
   public isModoUnivalle: boolean = false;
@@ -73,6 +74,21 @@ export class KaypiServices {
     this.getZonas().then((data) => {
       this.zonas = data;
     });
+    this.getRadioMovil().then((data) => {
+      this.radioMoviles = data;
+    });
+  }
+
+  getRadioMovil() {
+    return new Promise((resolve, reject) => {
+      console.log(this.rutaJson);
+      this.http.get(this.rutaJson + 'RadioMoviles.json').subscribe(data => {
+        this.radioMoviles = data.json();
+      });
+    })
+  }
+  obtenerRadioMoviles() {
+    return this.radioMoviles.RadioMoviles;
   }
 
   download() {
@@ -103,6 +119,19 @@ export class KaypiServices {
           }
         });
     }
+  }
+
+  registerTokenServer(token) {
+    var data = {
+      "token": token
+    };
+    var headers = new Headers({ "Content-Type": "application/json" });
+    var options = new RequestOptions({ headers: headers });
+
+    this.http.post('http://www.kaypi.hol.es/Push/RegisterToken', data, options).subscribe((data) => {
+      console.log(data);
+    }
+    );
   }
 
   obtenerRuta() {
@@ -271,7 +300,7 @@ export class KaypiServices {
       this.rutaJson = '../assets/Kaypi/update/';
     } else {
       this.rutaImagenes = "img/";
-      this.rutaJson = '../assets/Kaypi/update/';
+      this.rutaJson = 'http://www.kaypi.hol.es/Kaypi/update/';
     }
   }
 
@@ -319,6 +348,8 @@ export class KaypiServices {
       this.http.get(this.rutaJson + 'Lineas.json').subscribe(data => {
         this.lineas = data.json();
       });
+    }).catch(error=> {
+      console.log(error);
     })
   }
 

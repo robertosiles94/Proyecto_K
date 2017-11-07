@@ -21,7 +21,7 @@ export class ListaLineas {
     constructor(public navCtrl: NavController,
         public navParams: NavParams,
         public servicio: KaypiServices,
-        public toastCtrl: ToastController,public platform: Platform) {
+        public toastCtrl: ToastController, public platform: Platform) {
 
         this.inicio = this.navParams.get('Inicio');
         this.destino = this.navParams.get('Fin');
@@ -46,29 +46,27 @@ export class ListaLineas {
     ionViewDidLeave() {
         this.platform.registerBackButtonAction(() => {
             this.navCtrl.pop();
-          });
+        });
     }
 
     getListaLineas() {
         //this.lineas = this.servicio.obtenerLineasPorSelecion(this.inicio, this.destino);
         this.lineas = this.servicio.obtenerListaPorSeleccion();
         this.sentido = this.servicio.getSentido();
-        //var mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastNinguno");
-        //if (this.lineas.length >= 1) {
-            //mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastLineasCercanas");
-        //}
-        //this.mostrarMensaje(mensaje);
+        if (this.lineas.length == 0) {
+            var mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastNinguno");
+            this.mostrarMensaje(mensaje);
+        }
     }
 
     mostrarLineasPorUnPunto() {
         this.lineas = this.servicio.listaLineasPorUnPunto;
         this.sentido = null;
         this.destino = { position: null };
-        var mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastNinguno");
-        if (this.lineas.length >= 1) {
-            mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastLineasCercanas");
+        if (this.lineas.length == 0) {
+            var mensaje = this.servicio.traducir("IrDesdeMiUbicacion.ToastNinguno");
+            this.mostrarMensaje(mensaje);
         }
-        this.mostrarMensaje(mensaje);
     }
 
     mostrarRuta(linea) {
@@ -86,10 +84,9 @@ export class ListaLineas {
     mostrarMensaje(mensaje) {
         let toast = this.toastCtrl.create({
             message: mensaje,
-            duration: 8000,
+            duration: 4000,
             position: 'bottom'
         });
-
         toast.present(toast);
     }
 }

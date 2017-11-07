@@ -26,13 +26,24 @@
        item-start (click)="empezarBusqueda()" style="text-transform: none;">
        {{'Botones.ReiniciarBusqueda' | translate}}
       </button>
-      <h2 class="cobertura" item-end><b>{{'IrDesdeMiUbicacion.Cobertura' | translate}}</b></h2>
-      <ion-toggle item-end color="danger" [(ngModel)]="valorCobertura" (ionChange)="mostrarCobertura()"></ion-toggle>
+      <h2 class="cobertura" item-end><b>{{'IrDesdeMiUbicacion.Trafico' | translate}}</b></h2>
+      <ion-toggle item-end color="danger" [(ngModel)]="trafico" (ionChange)="verTrafico()"></ion-toggle>
     </ion-item>
   </div>
   <div #map id="map" name="map">
   </div>
   <ion-fab left bottom (click)="listadoLineas()" *ngIf="hayListado()">
     <button ion-fab class="jellyAnimation" color="{{colorFondo}}"><ion-icon name="list"></ion-icon></button>
+  </ion-fab>
+  <ion-fab right bottom (click)="mostrarCobertura()">
+    <button ion-fab color="{{colorTrafico}}" [disabled]="isBusqueda"><ion-icon name="map"></ion-icon></button>
+  </ion-fab>
+  <ion-fab left top class="posicionAccesoDirecto">
+    <button ion-fab mini>
+      <ion-icon name="share-alt"></ion-icon>
+    </button>
+    <ion-fab-list>
+      <button ion-button round item-left color="light" (click)="goToBusquedaPorCalles()">{{ 'AccesosDirectos.IrPorUnPunto' | translate }}</button>
+    </ion-fab-list>
   </ion-fab>
 </ion-content>

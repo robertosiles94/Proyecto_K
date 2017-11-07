@@ -7,6 +7,7 @@ import { AlertController } from 'ionic-angular';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { LatLng } from '@ionic-native/google-maps';
 import { ToastController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 declare var google;
 
@@ -35,7 +36,16 @@ export class PuntoEstrategicoMapa {
   origen: boolean = false;
   mensajesToast: any;
 
-  constructor(public navCtrl: NavController, public diagnostic: Diagnostic, public navParams: NavParams, public servicio: KaypiServices, public geolocation: Geolocation, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, 
+    public diagnostic: Diagnostic, 
+    public navParams: NavParams, 
+    public servicio: KaypiServices, 
+    public geolocation: Geolocation, 
+    public loadingCtrl: LoadingController, 
+    public alertCtrl: AlertController, 
+    public toastCtrl: ToastController,
+    public platform: Platform) {
+      
     this.cargarFab();
     this.colorFondo = this.servicio.modoApp;
   }
@@ -50,6 +60,10 @@ export class PuntoEstrategicoMapa {
       this.fabTodos = false;
       this.fabPunto = true;
     }
+  }
+
+  goToBusquedaPorCalles() {
+    this.navCtrl.push('BusquedaCallePage');
   }
 
   cargarCategorias() {
@@ -159,7 +173,9 @@ export class PuntoEstrategicoMapa {
 
   ionViewDidLoad() {
     this.initMap();
-    console.log(this.servicio.paginas);
+    this.platform.registerBackButtonAction(() => {
+      this.navCtrl.pop();
+    });
     this.allMarcadores = [];
     this.opcion = this.navParams.get('Opcion');
     this.cargarPuntos();
@@ -177,10 +193,6 @@ export class PuntoEstrategicoMapa {
       this.cargarCategorias();
       this.cargarPosicionPuntosEstrategicos();
     }
-  }
-
-  ionViewDidLeave() {
-    console.log(this.servicio.paginas);
   }
 
   cargarPosicionPuntoEstrategico() {
@@ -275,7 +287,7 @@ export class PuntoEstrategicoMapa {
       });
   }
 
- cargarMiPosicion(position, loader) {
+  cargarMiPosicion(position, loader) {
     let latitude = position.coords.latitude;
     let longitud = position.coords.longitude;
     let myPosition: LatLng = new LatLng(latitude, longitud);
@@ -297,7 +309,7 @@ export class PuntoEstrategicoMapa {
     this.navCtrl.push('ListaLineas', puntos);
   }
 
-  seleccionOrigen() { 
+  seleccionOrigen() {
     this.mensajesToast = this.toastCtrl.create({
       message: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen"),
       position: 'bottom'
@@ -305,20 +317,20 @@ export class PuntoEstrategicoMapa {
     this.mensajesToast.present(this.mensajesToast);
     this.origen = true;
     //let alert = this.alertCtrl.create({
-      //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
-      //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen")
+    //title: this.servicio.traducir("IrDesdeMiUbicacion.Origen.TituloAlertOrigen"),
+    //subTitle: this.servicio.traducir("IrDesdeMiUbicacion.Origen.ContenidoAlertOrigen")
     //});
     //alert.addButton({
-      //text: this.servicio.traducir("Botones.Cancelar"),
-      //handler: data => {
-        //this.origen = false;
-      //}
+    //text: this.servicio.traducir("Botones.Cancelar"),
+    //handler: data => {
+    //this.origen = false;
+    //}
     //});
     //alert.addButton({
-      //text: this.servicio.traducir("Botones.Aceptar"),
-      //handler: data => {
-        //this.origen = true;
-      //}
+    //text: this.servicio.traducir("Botones.Aceptar"),
+    //handler: data => {
+    //this.origen = true;
+    //}
     //});
     //alert.present();
   }
